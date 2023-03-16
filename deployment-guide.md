@@ -1,0 +1,1 @@
+# Deploying your Django application to Azure Container Apps

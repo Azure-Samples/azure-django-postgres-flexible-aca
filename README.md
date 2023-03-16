@@ -2,7 +2,7 @@
 
 This project will walkthrough the steps to deploy a Django application to Azure Container Apps. The Django application is a simple web application for a space travel agency. The application is built using the Django framework and uses a PostgreSQL database. The application can be deployed to Azure using [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) or [Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview).
 
-### Prerequisites
+## Prerequisites
 
 You'll need a GitHub account. If you don't have a GitHub account, create a [free account](https://github.com/signup)
 
@@ -18,7 +18,7 @@ If you choose to develop locally you will need to install the following tools:
 
 You will also need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/azure-pycon2023/) before you begin. # TODO: UPDATE LINK
 
-### Quickstart
+## Quickstart
 
 (Add steps to get up and running quickly)
 
@@ -27,7 +27,7 @@ You will also need an Azure subscription. If you don't have an Azure subscriptio
 3. Launch the repo locally in VS Code or in Codespaces
 4. Follow the steps in the [deployment guide](./deployment-guide.md) to deploy the application to Azure Container Apps.
 
-### Deployment
+## Deployment
 
 1. Install your requirements
     `pip install -r demo-code/requirements.txt`

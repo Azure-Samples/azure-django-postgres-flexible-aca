@@ -1,15 +1,18 @@
 version: '3'
 
 services:
+  db:
+    image: postgres
   app:
-    image: python:3.11
     platform: linux/amd64
-    environment:
-      - PYTHONDONTWRITEBYTECODE=1
-      - PYTHONUNBUFFERED=1
+    build:
+      context: .
+      dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - 8000:8000
     working_dir: /demo-code
     volumes:
       - ./demo-code:/demo-code
+    links:
+      - db:db

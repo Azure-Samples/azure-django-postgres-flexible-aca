@@ -10,3 +10,4 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN python -m pip install --upgrade pip
 RUN python -m pip install -r requirements.txt
 RUN python manage.py migrate
+ENTRYPOINT ["python", "manage.py", "runserver"]

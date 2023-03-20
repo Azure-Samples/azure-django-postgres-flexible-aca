@@ -2,17 +2,36 @@ version: '3'
 
 services:
   db:
-    image: postgres
+    image: postgres:14
+
+    environment:
+      POSTGRES_USER:  postgres # The PostgreSQL user (useful to connect to the database)
+      POSTGRES_PASSWORD: postgres # The PostgreSQL password (useful to connect to the database)
+      POSTGRES_DB: db # The PostgreSQL default database (automatically created at first launch)
+
+    ports:
+      - 5432:5432
+
+    volumes:
+      - postgres-data:/var/lib/postgresql/data 
   app:
     platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
+
     command: python manage.py runserver 0.0.0.0:8000
-    ports:
-      - 8000:8000
+
     working_dir: /demo-code
+
     volumes:
       - ./demo-code:/demo-code
-    links:
-      - db:db
+
+    depends_on:
+      - db
+
+    network_mode: service:db
+        
+
+volumes:
+  postgres-data:

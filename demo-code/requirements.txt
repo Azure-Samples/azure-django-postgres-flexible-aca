@@ -1,3 +1,4 @@
 django
 django-crispy-forms
+psycopg2
 whitenoise

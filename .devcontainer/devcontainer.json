@@ -14,7 +14,34 @@
     // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
     "service": "app",
     "shutdownAction": "stopCompose",
-    "workspaceFolder": "/app/"
+    "workspaceFolder": "/app/",
+	"forwardPorts": [8000, 5432],
+    "portsAttributes": {
+		"8000": {"label": "Django port", "onAutoForward": "notify"},
+		"5432": {"label": "PostgreSQL port", "onAutoForward": "silent"}
+	},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "mtxr.sqltools",
+				"mtxr.sqltools-driver-pg"
+            ],
+            "settings": {
+                "sqltools.connections" : [
+                    {
+                        "name": "Container DB",
+                        "driver": "PostgreSQL",
+                        "previewLimit": 50,
+                        "server": "localhost",
+                        "port": 5432,
+                        "database": "postgres",
+                        "password": "postgres",
+                        "username": "postgres"
+                    }
+                ]
+            }
+        }
+    }
 
     // The optional 'workspaceFolder' property is the path VS Code should open by default when
     // connected. This is typically a file mount in .devcontainer/docker-compose.yml

@@ -6,15 +6,16 @@
     // Update the 'dockerComposeFile' list if you have more compose files or use different names.
     // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
     "dockerComposeFile": [
-        "../docker-compose.yml",
-        "docker-compose.yml"
+        "../demo-code/docker-compose_prod.yml",
+        "docker-compose_dev.yml" // Overwrites portions of the prod compose file
     ],
 
     // The 'service' property is the name of the service for the container that VS Code should
     // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
     "service": "app",
     "shutdownAction": "stopCompose",
-    "workspaceFolder": "/app/",
+    "workspaceFolder": "/workspace",
+    "postCreateCommand": "python demo-code/manage.py migrate",
 	"forwardPorts": [8000, 5432],
     "portsAttributes": {
 		"8000": {"label": "Django port", "onAutoForward": "notify"},

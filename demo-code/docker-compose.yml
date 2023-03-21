@@ -11,6 +11,7 @@ services:
 
     ports:
       - 5432:5432
+      - 8000:8000
 
     volumes:
       - postgres-data:/var/lib/postgresql/data 
@@ -19,11 +20,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
-    command: python manage.py migrate && python manage.py runserver 0.0.0.0:8000
-
-    volumes:
-      - ./demo-code:/demo-code
 
     depends_on:
       - db

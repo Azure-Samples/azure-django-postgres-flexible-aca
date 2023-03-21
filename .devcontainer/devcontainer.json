@@ -6,7 +6,7 @@
     // Update the 'dockerComposeFile' list if you have more compose files or use different names.
     // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
     "dockerComposeFile": [
-        "../demo-code/docker-compose_prod.yml",
+        "../demo-code/docker-compose.yml",
         "docker-compose_dev.yml" // Overwrites portions of the prod compose file
     ],
 

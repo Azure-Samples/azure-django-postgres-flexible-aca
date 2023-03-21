@@ -40,11 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'crispy_bootstrap4',
     'relecloud.apps.RelecloudConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -83,11 +84,11 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':  'relecloud',
-        'USER':  'postgres',
-        'PASSWORD':  'postgres',
-        'HOST': 'db',
-        'PORT': '5432',
+        'NAME':  "relecloud",
+        'USER':  os.environ.get("POSTGRES_USER"),
+        'PASSWORD':  os.environ.get("POSTGRES_PASSWORD"),
+        'HOST': os.environ.get("POSTGRES_HOST"),
+        'PORT': os.environ.get("POSTGRES_PORT"),
     }
 }
 

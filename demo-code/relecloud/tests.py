@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
-from .models import Destination
+from .models import Destination, Cruise, InfoRequest
 # Create your tests here.
 
 
@@ -53,24 +53,32 @@ class DestinationsTest(TestCase):
     def test_destination_status_code(self):
         """Tests fetching destinations by its url"""
         dest = Destination.objects.get(name="Mars")
-        print(f"{dest.pk=}")
-        url = f'/destination/{dest.pk}'
-        print(f"{url=}")
-        response = self.client.get(url)
+        response = self.client.get(f'/destination/{dest.pk}')
         self.assertContains(response, "Mars")
 
-#     def test_destinations_status_code(self):
-#         """Tests fetching index by its name"""
-#         respose = self.client.get(reverse('destinations'))
+class CruisesTest(TestCase):
+    cruise_name = "Contoso Cruises on the SS Marvin"
 
-#     def test_destination_status_code(self):
-#         """Tests fetching destination by its url"""
-#         pk = self.book.get()
-#         response = self.client.get('/destination/<PK>')
+    def setUp(self):
+        mars = Destination.objects.create(
+            name = "Mars",
+            description = "make your way to the red planet"
+        )
 
-#     def test_destinations_status_code(self):
-#         """Tests fetching index by its name"""
-#         respose = self.client.get(reverse('destinations'))
+        cruise = Cruise.objects.create(
+            name = self.cruise_name,
+            description = "Enjoy a ride on this Q36 luxurious space modulator",
+        )
+        
+        cruise.destinations.set([mars])
+    
+
+
+    def test_cruise_status_code(self):
+        """Tests fetching /cruises by its url"""
+        cruise = Cruise.objects.get(name=self.cruise_name)
+        response = self.client.get(f'/cruise/{cruise.pk}')
+        self.assertContains(response, "Mars")
 
 # # urlpatterns = [
 # #     path('', views.index, name='index'),

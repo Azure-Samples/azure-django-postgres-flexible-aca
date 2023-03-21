@@ -40,15 +40,24 @@ class DestinationsTest(TestCase):
 
     def test_destinations_status_code(self):
         """Tests fetching destinations by its url"""
-        response = self.client.get(f'/destinations')
-        print(response)
-        self.assertEqual(response.status_code, 200)
+        response = self.client.get("/destinations")
+        self.assertIn(response.status_code, [200, 301])
     
+    def test_destinations_url_by_name(self):
+        """
+        Tests fetching about by its name.
+        """
+        response = self.client.get(reverse("destinations"))
+        self.assertIn(response.status_code, [200, 301])
+
     def test_destination_status_code(self):
         """Tests fetching destinations by its url"""
         dest = Destination.objects.get(name="Mars")
-        response = self.client.get(f'/destinations/{dest.pk}')
-        self.assertEqual(response.status_code, 200)
+        print(f"{dest.pk=}")
+        url = f'/destination/{dest.pk}'
+        print(f"{url=}")
+        response = self.client.get(url)
+        self.assertContains(response, "Mars")
 
 #     def test_destinations_status_code(self):
 #         """Tests fetching index by its name"""

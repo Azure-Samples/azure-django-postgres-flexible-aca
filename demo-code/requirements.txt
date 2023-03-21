@@ -1,5 +1,5 @@
 django
 django-crispy-forms
 crispy-bootstrap4
-psycopg2
+psycopg2-binary
 whitenoise

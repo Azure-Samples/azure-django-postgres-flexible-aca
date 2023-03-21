@@ -4,10 +4,8 @@ services:
   db:
     image: postgres:14
 
-    environment:
-      POSTGRES_USER:  postgres # The PostgreSQL user (useful to connect to the database)
-      POSTGRES_PASSWORD: postgres # The PostgreSQL password (useful to connect to the database)
-      POSTGRES_DB: relecloud # The PostgreSQL default database (automatically created at first launch)
+    env_file:
+      - .env
 
     ports:
       - 5432:5432
@@ -20,12 +18,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
+    env_file:
+      - .env
     depends_on:
       - db
 
     network_mode: service:db
-        
 
 volumes:
   postgres-data:

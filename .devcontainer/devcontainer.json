@@ -24,8 +24,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "mtxr.sqltools",
-				"mtxr.sqltools-driver-pg"
+				"mtxr.sqltools-driver-pg",
+                "mtxr.sqltools"
             ],
             "settings": {
                 "sqltools.connections" : [
@@ -33,10 +33,9 @@
                         "name": "Container DB",
                         "driver": "PostgreSQL",
                         "previewLimit": 50,
-                        "server": "localhost",
+                        "server": "db",
                         "port": 5432,
-                        "database": "postgres",
-                        "password": "postgres",
+                        "database": "relecloud",
                         "username": "postgres"
                     }
                 ]

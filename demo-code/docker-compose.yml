@@ -10,6 +10,24 @@ services:
     depends_on:
       - app
     network_mode: service:db
+
+  locust_main:
+    image: locustio/locust
+    ports:
+      - 8089:8089
+    volumes:
+      - .:/locust
+    working_dir: /app
+    command: bash -c "pip install -r requirements_test.txt && locust -f locustfile.py --host=http://master:8089"
+
+  locust_worker:
+    image: locustio/locust
+    volumes:
+      - .:/locust
+    command: bash -c "pip install -r requirements_test.txt && locust -f locustfile.py --host=http://master:8089 --worker --master-host=master"
+    depends_on:
+      - locust_main
+
   db:
     image: postgres:14
 
@@ -19,6 +37,7 @@ services:
     ports:
       - 5432:5432
       - 8000:8000
+      - 8089:8089
 
     volumes:
       - postgres-data:/var/lib/postgresql/data 

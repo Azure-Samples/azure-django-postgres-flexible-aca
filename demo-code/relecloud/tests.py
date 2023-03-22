@@ -3,7 +3,6 @@ from django.urls import reverse
 from .models import Destination, Cruise, InfoRequest
 # Create your tests here.
 
-
 class IndexTest(SimpleTestCase):
     """Tests calling the index"""
 
@@ -56,6 +55,7 @@ class DestinationsTest(TestCase):
         response = self.client.get(f'/destination/{dest.pk}')
         self.assertContains(response, "Mars")
 
+
 class CruisesTest(TestCase):
     cruise_name = "Contoso Cruises on the SS Marvin"
 
@@ -71,8 +71,6 @@ class CruisesTest(TestCase):
         )
         
         cruise.destinations.set([mars])
-    
-
 
     def test_cruise_status_code(self):
         """Tests fetching /cruises by its url"""
@@ -80,11 +78,31 @@ class CruisesTest(TestCase):
         response = self.client.get(f'/cruise/{cruise.pk}')
         self.assertContains(response, "Mars")
 
-# # urlpatterns = [
-# #     path('', views.index, name='index'),
-# #     path('about', views.about, name='about'),
-# #     path('destinations/', views.destinations, name='destinations'),
-# #     path('destination/<int:pk>', views.DestinationDetailView.as_view(), name='destination_detail'),
-# #     path('cruise/<int:pk>', views.CruiseDetailView.as_view(), name='cruise_detail'),
-# #     path('info_request', views.InfoRequestCreate.as_view(), name='info_request'),
-# # ]
+
+class InfoRequest(TestCase):
+    cruise_name = "Contoso Cruises on the SS Marvin"
+
+    def setUp(self):
+        mars = Destination.objects.create(
+            name = "Mars",
+            description = "make your way to the red planet"
+        )
+
+        cruise = Cruise.objects.create(
+            name = self.cruise_name,
+            description = "Enjoy a ride on this Q36 luxurious space modulator",
+        )
+    
+    def tests_info_request_status_code(self):
+        """Tests that the info request page loads"""
+        response = self.client.get("/info_request")
+        self.assertEqual(response.status_code, 200)
+
+    def tests_info_request_form_fields(self):
+        response = self.client.get("/info_request")
+        fields = response.context['form'].fields.keys()
+
+        self.assertIn("name", fields)
+        self.assertIn("email", fields)
+        self.assertIn("cruise", fields)
+        self.assertIn("notes", fields)

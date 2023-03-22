@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  playwright:
+    image: mcr.microsoft.com/playwright/python:v1.30.0-focal
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "pip install -r requirements_test.txt && pytest -v"
+    depends_on:
+      - app
+    network_mode: service:db
   db:
     image: postgres:14
 

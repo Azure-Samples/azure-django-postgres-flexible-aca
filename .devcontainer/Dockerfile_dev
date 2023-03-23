@@ -2,19 +2,18 @@ FROM --platform=linux/amd64 python:3.11
 
 ENV PYTHONUNBUFFERED=1:
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV DJANGO_SETTINGS_MODULE=project.settings_local
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends postgresql-client \
     && apt-get update && apt-get install -y xdg-utils \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
-RUN python -m pip install --upgrade pip
-
-WORKDIR /demo-code
-COPY demo-code/requirements.txt .
-
-RUN python -m pip install -r requirements.txt
-COPY . .
-
+# Adds AZD for Developer CLI
 RUN curl -fsSL https://aka.ms/install-azd.sh | bash
 
-CMD bash -c "python manage.py migrate && python manage.py runserver 127.0.0.1:8000" 
+RUN python -m pip install --upgrade pip
+
+COPY demo-code/requirements.txt .
+COPY demo-code/entrypoint.sh .
+
+RUN python -m pip install -r requirements.txt

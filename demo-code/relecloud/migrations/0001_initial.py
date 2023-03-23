@@ -8,33 +8,68 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Cabin',
+            name="Cabin",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50, unique=True)),
-                ('description', models.TextField(max_length=2000)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50, unique=True)),
+                ("description", models.TextField(max_length=2000)),
             ],
         ),
         migrations.CreateModel(
-            name='Cruise',
+            name="Cruise",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('destination', models.CharField(max_length=50, unique=True)),
-                ('description', models.TextField(max_length=2000)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("destination", models.CharField(max_length=50, unique=True)),
+                ("description", models.TextField(max_length=2000)),
             ],
         ),
         migrations.CreateModel(
-            name='CruiseCabin',
+            name="CruiseCabin",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('cabin', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='relecloud.cabin')),
-                ('cruise', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='relecloud.cruise')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("price", models.DecimalField(decimal_places=2, max_digits=10)),
+                (
+                    "cabin",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="relecloud.cabin",
+                    ),
+                ),
+                (
+                    "cruise",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="relecloud.cruise",
+                    ),
+                ),
             ],
         ),
     ]

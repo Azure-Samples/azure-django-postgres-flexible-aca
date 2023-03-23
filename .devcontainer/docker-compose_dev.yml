@@ -2,16 +2,11 @@ version: '3'
 services:
   # Update this to the name of the service you want to work with in your docker-compose.yml file
   app:
-    command: sleep infinity
     build: 
-      context: ..
+      context: .
       dockerfile: .devcontainer/Dockerfile_dev
-
-    env_file:
-      .env
-
-    environment:
-      - DJANGO_SETTINGS_MODULE=project.settings_local
       
+    command: sleep infinity
+
     volumes:
-      - ..:/workspace:cached
+      - .:/workspace:cached

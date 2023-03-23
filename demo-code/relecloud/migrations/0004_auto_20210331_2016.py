@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('relecloud', '0003_auto_20210331_1932'),
+        ("relecloud", "0003_auto_20210331_1932"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='inforequest',
-            name='name',
+            model_name="inforequest",
+            name="name",
             field=models.CharField(max_length=50),
         ),
     ]

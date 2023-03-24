@@ -18,7 +18,7 @@
         "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} POSTGRESPASSWORD)"
       },
       "djangoSecretKey": {
-        "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} DJANGOSECRET)"
+        "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} DJANGOSECRETKEY)"
       }
     }
   }

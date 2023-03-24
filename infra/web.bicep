@@ -12,11 +12,6 @@ param postgresDomainName string
 param postgresDatabaseName string
 param postgresUser string
 
-@secure()
-param djangoSecretKey string
-
-@secure()
-param postgresPassword string
 
 module app 'core/host/container-app.bicep' = {
   name: '${serviceName}-container-app-module'
@@ -26,16 +21,6 @@ module app 'core/host/container-app.bicep' = {
     tags: union(tags, { 'azd-service-name': serviceName })
     containerAppsEnvironmentName: containerAppsEnvironmentName
     containerRegistryName: containerRegistryName
-    secrets: [
-      {
-        name: 'postgrespassword'
-        value: postgresPassword
-      }
-      {
-        name: 'djangosecretkey'
-        value: djangoSecretKey
-      }
-    ]
     env: [
       {
         name: 'POSTGRES_HOST'
@@ -52,14 +37,6 @@ module app 'core/host/container-app.bicep' = {
       {
         name: 'DJANGO_POSTGRES_KEYVAULT'
         value: keyVault.name
-      }
-      { 
-        name: 'POSTGRES_PASSWORD'
-        secretRef: 'postgrespassword'
-      }
-      { 
-        name: 'DJANGO_SECRET_KEY'
-        secretRef: 'djangosecretkey'
       }
       ]
     imageName: !empty(imageName) ? imageName : 'nginx:latest'

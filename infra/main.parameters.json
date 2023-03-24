@@ -15,9 +15,9 @@
         "value": "${SERVICE_WEB_IMAGE_NAME}"
       },
       "postgresPassword": {
-        "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} POSTGRES_PASSWORD)"
+        "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} POSTGRESPASSWORD)"
       },
-      "djangoSecret": {
+      "djangoSecretKey": {
         "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} DJANGOSECRET)"
       }
     }

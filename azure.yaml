@@ -1,8 +1,13 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
-name: django-postrges-aca
+
+name: azure-django-postgres-aca
+infra:
+    provider: "bicep"
+    path: ""
+    module: ""
 services:
-  web:
-    project: ./demo-code
-    module: web
-    language: py
-    host: containerapp
+    web:
+        project: ./demo-code
+        module: web
+        language: py
+        host: containerapp

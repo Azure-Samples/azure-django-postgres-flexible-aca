@@ -15,7 +15,7 @@ param postgresPassword string
 
 @secure()
 @description('Django Secret Key')
-param djangoSecret string
+param djangoSecretKey string
 
 @description('The image name for the web service')
 param webImageName string = ''
@@ -108,6 +108,8 @@ module web 'web.bicep' = {
     postgresDomainName: postgresServer.outputs.POSTGRES_DOMAIN_NAME
     postgresUser: postgresUser
     postgresDatabaseName: postgresDatabaseName
+    postgresPassword: postgresPassword
+    djangoSecretKey: djangoSecretKey
   }
 }
 
@@ -128,7 +130,7 @@ var secrets = [
   }
   {
     name: 'DJANGO_SECRET_KEY'
-    value: djangoSecret
+    value: djangoSecretKey
   }
 ]
 

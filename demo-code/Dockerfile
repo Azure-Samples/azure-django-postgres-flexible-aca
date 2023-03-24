@@ -10,11 +10,11 @@ RUN python -m pip install --upgrade pip
 
 WORKDIR /demo-code
 
-COPY demo-code/requirements.txt .
-COPY demo-code/entrypoint.sh .
+COPY requirements.txt .
+COPY entrypoint.sh .
 
 RUN python -m pip install -r requirements.txt
 RUN chmod +x entrypoint.sh
-COPY ./demo-code/ .
+COPY . .
 # CMD bash -c "sleep infinity"
 CMD bash -c ". entrypoint.sh"

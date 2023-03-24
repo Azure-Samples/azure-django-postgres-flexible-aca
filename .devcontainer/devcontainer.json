@@ -24,7 +24,8 @@
         "vscode": {
             "extensions": [
 				"mtxr.sqltools-driver-pg",
-                "mtxr.sqltools"
+                "mtxr.sqltools",
+                "ms-azuretools.vscode-bicep"
             ],
             "settings": {
                 "sqltools.connections" : [

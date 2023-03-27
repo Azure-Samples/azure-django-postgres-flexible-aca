@@ -39,7 +39,7 @@ SECRET_KEY = get_secret("DJANGOSECRETKEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*.azurewebsites.net"]
+ALLOWED_HOSTS = ['django-aca2-7mmupiv-containerapp.wittywave-a0abc6e2.eastus.azurecontainerapps.io']
 
 
 # Application definition

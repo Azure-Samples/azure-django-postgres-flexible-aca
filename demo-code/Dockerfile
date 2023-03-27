@@ -1,7 +1,5 @@
 FROM --platform=linux/amd64 python:3.11
 
-ENV DJANGO_SETTINGS_MODULE=project.settings_local
-
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends postgresql-client \
     && apt-get update && apt-get install -y xdg-utils \

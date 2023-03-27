@@ -8,13 +8,11 @@ class Destination(models.Model):
         null=False,
         blank=False,
     )
-    description = models.TextField(
-        max_length=2000,
-        null=False,
-        blank=False
-    )
+    description = models.TextField(max_length=2000, null=False, blank=False)
+
     def __str__(self):
         return self.name
+
 
 class Cruise(models.Model):
     name = models.CharField(
@@ -23,17 +21,12 @@ class Cruise(models.Model):
         null=False,
         blank=False,
     )
-    description = models.TextField(
-        max_length=2000,
-        null=False,
-        blank=False
-    )
-    destinations = models.ManyToManyField(
-        Destination,
-        related_name='cruises'
-    )
+    description = models.TextField(max_length=2000, null=False, blank=False)
+    destinations = models.ManyToManyField(Destination, related_name="cruises")
+
     def __str__(self):
         return self.name
+
 
 class InfoRequest(models.Model):
     name = models.CharField(
@@ -42,12 +35,5 @@ class InfoRequest(models.Model):
         blank=False,
     )
     email = models.EmailField()
-    notes = models.TextField(
-        max_length=2000,
-        null=False,
-        blank=False
-    )
-    cruise = models.ForeignKey(
-        Cruise,
-        on_delete=models.PROTECT
-    )
+    notes = models.TextField(max_length=2000, null=False, blank=False)
+    cruise = models.ForeignKey(Cruise, on_delete=models.PROTECT)

@@ -7,14 +7,42 @@
     // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
     "dockerComposeFile": [
         "../docker-compose.yml",
-        "docker-compose.yml"
+        "docker-compose_dev.yml" // Overwrites portions of the prod compose file
     ],
 
     // The 'service' property is the name of the service for the container that VS Code should
     // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
     "service": "app",
     "shutdownAction": "stopCompose",
-    "workspaceFolder": "/app/"
+    "workspaceFolder": "/workspace",
+	"forwardPorts": [8000, 5432],
+    "portsAttributes": {
+		"8000": {"label": "Django port", "onAutoForward": "notify"},
+		"5432": {"label": "PostgreSQL port", "onAutoForward": "silent"}
+	},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+				"mtxr.sqltools-driver-pg",
+                "mtxr.sqltools",
+                "ms-azuretools.vscode-bicep"
+            ],
+            "settings": {
+                "sqltools.connections" : [
+                    {
+                        "name": "Container DB",
+                        "driver": "PostgreSQL",
+                        "previewLimit": 50,
+                        "server": "db",
+                        "port": 5432,
+                        "database": "relecloud",
+                        "username": "postgres"
+                    }
+                ]
+            }
+        }
+    },
+    "postStartCommand": "python demo-code/manage.py migrate && python demo-code/manage.py loaddata demo-code/seed_data.json"
 
     // The optional 'workspaceFolder' property is the path VS Code should open by default when
     // connected. This is typically a file mount in .devcontainer/docker-compose.yml

@@ -6,3 +6,7 @@ gunicorn
 whitenoise
 azure-keyvault-secrets
 azure-identity
+pytest
+pytest-django
+pytest-playwright
+playwright

@@ -1,5 +1,5 @@
-name: PostgreSQL service example
-on: push
+name: Runs Django Unittests
+on: [push, pull_request] 
 defaults:
   run:
     working-directory: demo-code

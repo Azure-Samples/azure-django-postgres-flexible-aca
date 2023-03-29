@@ -29,5 +29,5 @@
             ]
         }
     },
-    "postStartCommand": "python demo-code/manage.py migrate && python demo-code/manage.py loaddata demo-code/seed_data.json"
+    // "postStartCommand": "python demo-code/manage.py migrate && python demo-code/manage.py loaddata demo-code/seed_data.json"
 }

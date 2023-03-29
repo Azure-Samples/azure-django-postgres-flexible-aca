@@ -1,5 +1,8 @@
 name: PostgreSQL service example
 on: push
+defaults:
+  run:
+    working-directory: demo-code
 
 jobs:
   # Label of the container job
@@ -32,18 +35,15 @@ jobs:
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         uses: actions/checkout@v3
-        working-directory: demo-code
 
       # Performs a clean installation of all dependencies in the `package.json` file
       # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
-        working-directory: demo-code
         run: python -m pip install -r requirements.txt
 
       - name: Connect to PostgreSQL
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data.
-        working-directory: demo-code
         run: |
             python manage.py test
         # Environment variables used by the `client.js` script to create a new PostgreSQL table.

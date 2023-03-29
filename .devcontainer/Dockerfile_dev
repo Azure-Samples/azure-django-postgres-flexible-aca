@@ -12,6 +12,5 @@ RUN curl -fsSL https://aka.ms/install-azd.sh | bash
 RUN python -m pip install --upgrade pip
 
 COPY demo-code/requirements.txt .
-COPY demo-code/entrypoint.sh .
 
 RUN python -m pip install -r requirements.txt

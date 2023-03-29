@@ -1,8 +1,18 @@
-## Quickstart
+# Quickstart
 
-(Add steps to get up and running quickly)
+The steps below will get you up and running to deploy your container app to Azure
 
-1. Create your own repo from this template by clicking the "Use this Template" button above.
-2. Create a new [access token](https://github.com/settings/tokens) for the repo. See [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for more information.
-3. Launch the repo locally in VS Code or in Codespaces
-4. Follow the steps in the [deployment guide](./deployment-guide.md) to deploy the application to Azure Container Apps.
+## Create your own repo from this template by clicking the "Use this Template" button above.
+
+
+![The green "Use this Template" button in the top right section of the repo page on GitHub](../assets/use-this-template.png).
+
+You will be prompted to 
+
+## From your template repo Launch the repo locally in VS Code or in Codespaces
+
+You can use [GitHub Codespaces](http://aka.ms/codespaces) to launch your repo in a browser-based VS Code environment. This is a great way to get started with no local setup required. GitHub users recieve 60 free hours of Codespaces per month.
+
+Select the green "Code" button in the top right section of the repo page on GitHub and select "Open with Codespaces". If you haven't created a Codespace before, you will be prompted to create one. Once created, you will be taken to your Codespace environment.
+
+You can choose to work from inside your browser or

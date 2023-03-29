@@ -32,20 +32,24 @@ jobs:
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         uses: actions/checkout@v3
+        working-directory: demo-code
 
       # Performs a clean installation of all dependencies in the `package.json` file
       # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
-        run: python -m pip install -r demo-code/requirements.txt
+        working-directory: demo-code
+        run: python -m pip install -r requirements.txt
 
       - name: Connect to PostgreSQL
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data.
-        run: python demo-code/manage.py
+        working-directory: demo-code
+        run: |
+            python manage.py test
         # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
           # The hostname used to communicate with the PostgreSQL service container
-          DJANGO_SETTINGS_MODULE: demo_code.project.settings_local
+          DJANGO_SETTINGS_MODULE: project.settings_local
           POSTGRES_HOST: db
           POSTGRES_DB: relecloud
           POSTGRES_USER: postgres

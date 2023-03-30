@@ -13,14 +13,13 @@ extend-exclude = '''
 )
 '''
 force-exclude = '''
-# Needed for pre-commit
 (
   ^/src/migrations\/
 )
+'''
 
 [tool.pytest.ini_options]
 addopts = "-ra --cov=backend"
 pythonpath = [
   "demo-code"
 ]
-'''

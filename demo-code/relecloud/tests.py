@@ -38,9 +38,7 @@ class DestinationsTest(TestCase):
     """Tests calling the destinations page"""
 
     def setUp(self):
-        Destination.objects.create(
-            name="Mars", description="make your way to the red planet"
-        )
+        Destination.objects.create(name="Mars", description="make your way to the red planet")
 
     def test_destinations_status_code(self):
         """Tests fetching destinations by its url"""
@@ -65,9 +63,7 @@ class CruisesTest(TestCase):
     cruise_name = "Contoso Cruises on the SS Marvin"
 
     def setUp(self):
-        mars = Destination.objects.create(
-            name="Mars", description="make your way to the red planet"
-        )
+        mars = Destination.objects.create(name="Mars", description="make your way to the red planet")
 
         cruise = Cruise.objects.create(
             name=self.cruise_name,
@@ -87,9 +83,7 @@ class InfoRequestTest(TestCase):
     cruise_name = "Contoso Cruises on the SS Marvin"
 
     def setUp(self):
-        Destination.objects.create(
-            name="Mars", description="make your way to the red planet"
-        )
+        Destination.objects.create(name="Mars", description="make your way to the red planet")
 
         Cruise.objects.create(
             name=self.cruise_name,

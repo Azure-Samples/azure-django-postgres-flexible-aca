@@ -66,9 +66,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="inforequest",
             name="cruise",
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.PROTECT, to="relecloud.cruise"
-            ),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to="relecloud.cruise"),
         ),
         migrations.AddField(
             model_name="cruise",

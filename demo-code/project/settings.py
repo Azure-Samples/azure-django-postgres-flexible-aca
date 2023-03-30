@@ -25,7 +25,6 @@ def get_secret(secret_name):
     raise RuntimeError("DJANGO_POSTGRES_KEYVAULT not set.")
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,7 +38,9 @@ SECRET_KEY = get_secret("DJANGOSECRETKEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ['CONTAINER_APP_NAME'] + '.' + os.environ['CONTAINER_APP_ENV_DNS_SUFFIX']]
+ALLOWED_HOSTS = [
+    os.environ["CONTAINER_APP_NAME"] + "." + os.environ["CONTAINER_APP_ENV_DNS_SUFFIX"]
+]
 
 
 # Application definition
@@ -92,11 +93,11 @@ WSGI_APPLICATION = "project.wsgi.application"
 
 
 OPENCENSUS = {
-    'TRACE': {
-        'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1)',
-        'EXPORTER': f'''opencensus.ext.azure.trace_exporter.AzureExporter(
+    "TRACE": {
+        "SAMPLER": "opencensus.trace.samplers.ProbabilitySampler(rate=1)",
+        "EXPORTER": f"""opencensus.ext.azure.trace_exporter.AzureExporter(
             connection_string="{os.environ.get('APPLICATIONINSIGHTS_CONNECTION_STRING')}"
-        )''',
+        )""",
     }
 }
 
@@ -156,17 +157,17 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
         },
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'DEBUG',
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
     },
 }
 
-DJANGO_LOG_LEVEL=DEBUG 
+DJANGO_LOG_LEVEL = DEBUG

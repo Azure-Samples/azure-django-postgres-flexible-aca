@@ -1,0 +1,5 @@
+-r demo-code/requirements.txt
+pytest
+pytest-django
+pytest-playwright
+playwright

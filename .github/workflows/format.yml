@@ -11,6 +11,6 @@ jobs:
                 cache: 'pip'
         - name: Check Format
           run: |
-                pip install -r ruff black
+                pip install ruff black
                 ruff .
                 black . --check --verbose

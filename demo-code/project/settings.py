@@ -63,6 +63,7 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "opencensus.ext.django.middleware.OpencensusMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -89,6 +90,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "project.wsgi.application"
 
+
+OPENCENSUS = {
+    'TRACE': {
+        'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1)',
+        'EXPORTER': f'''opencensus.ext.azure.trace_exporter.AzureExporter(
+            connection_string="{os.environ.get('APPINSIGHTS_CONNECTION_STRING')}"
+        )''',
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

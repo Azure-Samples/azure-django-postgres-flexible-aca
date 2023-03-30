@@ -10,3 +10,4 @@ pytest
 pytest-django
 pytest-playwright
 playwright
+opencensus-ext-azure

@@ -71,15 +71,20 @@ module postgresServer 'core/database/postgresql/flexibleserver.bicep' = {
   }
 }
 
-module logAnalyticsWorkspace 'core/monitor/loganalytics.bicep' = {
-  name: 'loganalytics'
+// Monitor application with Azure Monitor
+
+module monitoring 'core/monitor/monitoring.bicep' = {
+  name: 'monitoring'
   scope: resourceGroup
   params: {
-    name: '${prefix}-loganalytics'
     location: location
     tags: tags
+    applicationInsightsDashboardName: '${prefix}-appinsights-dashboard'
+    applicationInsightsName: '${prefix}-appinsights'
+    logAnalyticsName: '${prefix}-loganalytics'
   }
 }
+
 
 // Container apps host (including container registry)
 module containerApps 'core/host/container-apps.bicep' = {
@@ -90,7 +95,7 @@ module containerApps 'core/host/container-apps.bicep' = {
     location: location
     containerAppsEnvironmentName: '${prefix}-containerapps-env'
     containerRegistryName: '${replace(prefix, '-', '')}registry'
-    logAnalyticsWorkspaceName: logAnalyticsWorkspace.outputs.name
+    logAnalyticsWorkspaceName: monitoring.outputs.logAnalyticsWorkspaceName
   }
 }
 
@@ -102,6 +107,7 @@ module web 'web.bicep' = {
     name: '${take(prefix,19)}-containerapp'
     location: location
     imageName: webImageName
+    applicationInsightsName: monitoring.outputs.applicationInsightsName
     containerAppsEnvironmentName: containerApps.outputs.environmentName
     containerRegistryName: containerApps.outputs.registryName
     keyVaultName: keyVault.outputs.name
@@ -156,3 +162,4 @@ output SERVICE_WEB_URI string = web.outputs.SERVICE_WEB_URI
 output SERVICE_WEB_IMAGE_NAME string = web.outputs.SERVICE_WEB_IMAGE_NAME
 output AZURE_KEY_VAULT_ENDPOINT string = keyVault.outputs.endpoint
 output AZURE_KEY_VAULT_NAME string = keyVault.outputs.name
+output APPLICATIONINSIGHTS_NAME string = monitoring.outputs.applicationInsightsName

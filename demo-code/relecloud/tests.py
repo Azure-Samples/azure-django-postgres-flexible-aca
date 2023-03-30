@@ -1,6 +1,7 @@
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
-from .models import Destination, Cruise, InfoRequest
+
+from .models import Cruise, Destination
 
 # Create your tests here.
 
@@ -82,15 +83,15 @@ class CruisesTest(TestCase):
         self.assertContains(response, "Mars")
 
 
-class InfoRequest(TestCase):
+class InfoRequestTest(TestCase):
     cruise_name = "Contoso Cruises on the SS Marvin"
 
     def setUp(self):
-        mars = Destination.objects.create(
+        Destination.objects.create(
             name="Mars", description="make your way to the red planet"
         )
 
-        cruise = Cruise.objects.create(
+        Cruise.objects.create(
             name=self.cruise_name,
             description="Enjoy a ride on this Q36 luxurious space modulator",
         )

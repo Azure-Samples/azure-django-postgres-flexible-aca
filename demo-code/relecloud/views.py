@@ -1,8 +1,10 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from . import models
 from django.views import generic
-from django.contrib.messages.views import SuccessMessageMixin
+
+from . import models
+
 
 # Create your views here.
 def index(request):

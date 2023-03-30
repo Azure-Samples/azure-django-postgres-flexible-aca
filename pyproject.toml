@@ -9,15 +9,16 @@ target-version =  ["py311"]
 line-length = 120
 extend-exclude = '''
 (
-  ^/src/migrations\/
+  ^/demo-code/relecloud/migrations\/
 )
 '''
 force-exclude = '''
 # Needed for pre-commit
 (
-  ^/src/migrations\/
+  ^/demo-code/relecloud/migrations\/
 )
 '''
+
 [tool.pytest.ini_options]
 addopts = "-ra --cov=backend"
 pythonpath = [

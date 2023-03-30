@@ -1,0 +1,15 @@
+[tool.ruff]
+select = ["E", "F", "I", "UP"]
+target-version = "py311"
+line-length = 120
+src = ["demo-code"]
+
+[tool.black]
+target-version =  ["py311"]
+line-length = 120
+
+[tool.pytest.ini_options]
+addopts = "-ra --cov=backend"
+pythonpath = [
+  "demo-code"
+]

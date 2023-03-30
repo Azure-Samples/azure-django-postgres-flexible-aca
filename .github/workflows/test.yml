@@ -1,5 +1,11 @@
 name: Runs Django Unittests
-on: [push, pull_request] 
+on: 
+  push:
+    branches:
+      - main
+  pull_request: 
+    branches:
+      - main
 defaults:
   run:
     working-directory: demo-code

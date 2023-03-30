@@ -63,11 +63,11 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "opencensus.ext.django.middleware.OpencensusMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "opencensus.ext.django.middleware.OpencensusMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -95,7 +95,7 @@ OPENCENSUS = {
     'TRACE': {
         'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1)',
         'EXPORTER': f'''opencensus.ext.azure.trace_exporter.AzureExporter(
-            connection_string="{os.environ.get('APPINSIGHTS_CONNECTION_STRING')}"
+            connection_string="{os.environ.get('APPLICATIONINSIGHTS_CONNECTION_STRING')}"
         )''',
     }
 }

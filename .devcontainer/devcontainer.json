@@ -23,11 +23,13 @@
     "customizations": {
         "vscode": {
             "extensions": [
-				"mtxr.sqltools-driver-pg",
-                "mtxr.sqltools",
-                "ms-azuretools.vscode-bicep"
+                "ms-azuretools.vscode-bicep",
+                "charliermarsh.ruff",
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "microsoft.bicep"
             ]
         }
-    }
-    // "postStartCommand": "python demo-code/manage.py migrate && python demo-code/manage.py loaddata demo-code/seed_data.json"
+    },
+    "postBuildCommand": "python demo-code/manage.py migrate && python demo-code/manage.py loaddata demo-code/seed_data.json"
 }

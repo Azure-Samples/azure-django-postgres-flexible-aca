@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
 
@@ -23,7 +24,6 @@ def get_secret(secret_name):
         client = SecretClient(vault_url=key_vault_uri, credential=credential)
         return client.get_secret(secret_name).value
     raise RuntimeError("DJANGO_POSTGRES_KEYVAULT not set.")
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,7 +39,7 @@ SECRET_KEY = get_secret("DJANGOSECRETKEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ['CONTAINER_APP_NAME'] + '.' + os.environ['CONTAINER_APP_ENV_DNS_SUFFIX']]
+ALLOWED_HOSTS = [os.environ["CONTAINER_APP_NAME"] + "." + os.environ["CONTAINER_APP_ENV_DNS_SUFFIX"]]
 
 
 # Application definition
@@ -67,6 +67,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "opencensus.ext.django.middleware.OpencensusMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -89,6 +90,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "project.wsgi.application"
 
+
+OPENCENSUS = {
+    "TRACE": {
+        "SAMPLER": "opencensus.trace.samplers.ProbabilitySampler(rate=1)",
+        "EXPORTER": f"""opencensus.ext.azure.trace_exporter.AzureExporter(
+            connection_string="{os.environ.get('APPLICATIONINSIGHTS_CONNECTION_STRING')}"
+        )""",
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -146,17 +156,17 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
         },
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'DEBUG',
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
     },
 }
 
-DJANGO_LOG_LEVEL=DEBUG 
+DJANGO_LOG_LEVEL = DEBUG

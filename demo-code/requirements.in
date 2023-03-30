@@ -1,0 +1,10 @@
+django
+django-crispy-forms
+crispy-bootstrap4
+psycopg2-binary
+gunicorn
+whitenoise
+azure-keyvault-secrets
+azure-identity
+opencensus-ext-azure
+opencensus-ext-django

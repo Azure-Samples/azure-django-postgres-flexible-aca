@@ -28,6 +28,9 @@
       },
       "keyVaultName": {
         "value": "${AZURE_KEY_VAULT_NAME}"
+      },
+      "applicationInsightsName": {
+        "value": "${APPLICATIONINSIGHTS_NAME}"
       }
     }
   }

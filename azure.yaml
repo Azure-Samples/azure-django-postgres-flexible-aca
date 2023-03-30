@@ -3,11 +3,11 @@
 name: azure-django-postgres-aca
 infra:
     provider: "bicep"
-    path: ""
-    module: ""
 services:
     web:
         project: ./demo-code
         module: web
         language: py
         host: containerapp
+metadata:
+    template: django-postgres-aca@0.0.1-beta

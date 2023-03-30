@@ -13,8 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="cruise",
             name="destinations",
-            field=models.ManyToManyField(
-                related_name="cruises", to="relecloud.Destination"
-            ),
+            field=models.ManyToManyField(related_name="cruises", to="relecloud.Destination"),
         ),
     ]

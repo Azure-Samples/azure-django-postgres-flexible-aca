@@ -4,7 +4,7 @@ Before we deploy our application to the web, we need to test it. In a production
 
 # Testing our django application
 
-We need to test that our django application works as expected. We have provided some tests that ensure that you can visit all of the urls and that the data is being returned as expected. 
+We need to test that our django application works as expected. We have provided some tests that ensure that you can visit all of the urls and that the data is being returned as expected.
 
 > **:pencil: Try It!**
 > Run the following command to run the tests inside of our devcontainer/codespace:
@@ -24,4 +24,7 @@ we've included a GitHub Action that will run our tests for us inside of a contai
 
 > **:mag: Explore**
 > You can use the GitHub Actions Extension in VS Code (Included in your DevContainer) to view the GitHub Action that is running our tests.
-****
+
+![The GitHub Actions Pane in VS Code](../assets/view%20Actions.png)
+
+**_Proceed to 04 - Deploying Locally_**

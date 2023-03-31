@@ -1,8 +1,8 @@
-name: Runs Django Unittests
+name: Run Django Unittests
 on: 
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
   pull_request: 
     branches:
       - main
@@ -12,7 +12,7 @@ defaults:
 
 jobs:
   # Label of the container job
-  container-job:
+  Create-Container:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in

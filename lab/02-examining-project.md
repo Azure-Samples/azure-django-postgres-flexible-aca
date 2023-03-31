@@ -49,5 +49,11 @@ Before we deploy our application, let's take a look at the project.
 
 ```
 
-The code we will deploy exists in the `demo-code` folder. This is a [Django](https://djangoproject.com) project that is the base for a space tourism company called "Relecloud". 
+The code we will deploy exists in the `demo-code` folder. This is a [Django](https://djangoproject.com) project that is the base for a space tourism company called "Relecloud". Users can visit the site to learn about the tours taken around the solar system.
 
+We also have 2 docker-compose files and 2 dockerfiles. `docker-compose.yml` serves as the base configuration for all of the development environments. `.devcontainer/docker-compose.yml` and `devcontainer/Dockerfile_dev` are used to configure the development environment when using [Dev Containers](https://code.visualstudio.com/docs/remote/containers) or [Codespaces](https://codespaces.github.com). Finally, the `demo-code/Dockerfile` is used to build the image that will be deployed to Azure.
+
+Lastly, there is an `infra` folder that contains the Bicep templates used to deploy the infrastructure to Azure using the [_Azure Developer CLI_](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview). We'll take a look at these files later in the lab.
+
+>**Note**
+> There is no completion step. Please proceed to [03-Deploying Locally](03-deploying-locally.md)

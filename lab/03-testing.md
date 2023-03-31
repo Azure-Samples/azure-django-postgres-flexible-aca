@@ -1,20 +1,17 @@
-# Deploy your project locally
+# Testing
 
-Before we deploy our application to the web, we need to test it. In a production environment, we would want a staging area where we can test our application before deploying it to production. In this lab we are using our devcontainers/codespaces environment for this process. We also have a GitHub Action that will run our tests as well. This is a great way to ensure that our code is working as expected before we deploy it to production.
+[01 Getting Started](./README.md) | [02 Examining the Project](./02-examining-project.md) | 03 Testing | [04 Deploying Locally](./04-deploying-locally.md) | [05 Deploying to Azure](./05-deploying-to-azure.md)  
 
-# Testing our django application
 
 We need to test that our django application works as expected. We have provided some tests that ensure that you can visit all of the urls and that the data is being returned as expected.
 
-> **:pencil: Try It!**
-> Run the following command to run the tests inside of our devcontainer/codespace:
+navigate to the `demo-code` folder and run the following command:
 
-> ```shell
-> cd demo-code
-> python manage.py test
-> ```
+```shell
+python manage.py test
+```
 
-../assets/testing%20your%20django%20code.mp4 # Replace in GitHub
+## Next
 
 ## Testing via GitHub Actions
 
@@ -27,4 +24,6 @@ we've included a GitHub Action that will run our tests for us inside of a contai
 
 ![The GitHub Actions Pane in VS Code](../assets/view%20Actions.png)
 
-**_Proceed to 04 - Deploying Locally_**
+## Next
+
+Proceed to [04 Deploying Lovally](./04-deploying-locally.md)

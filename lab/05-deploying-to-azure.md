@@ -1,14 +1,9 @@
-# Deploy your project locally
+# Deploy your project to Azure
 
-You need to test thiso
+[01 Getting Started](./README.md) | [02 Examining the Project](./02-examining-project.md) | [03 Testing](./03-testing.md) | [04 Deploying Locally](./04-deploying-locally.md) | 05 Deploying to Azure
 
+...
 
-# Test your site
+## Congratulations
 
-navigate to the `demo-code` folder and run the following command:
-
-```shell
-python manage.py test
-```
-
-## Next
+Congratulations, you have successfully deployed a Django Application via Azure Container Apps.

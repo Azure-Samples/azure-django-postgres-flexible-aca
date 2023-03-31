@@ -23,13 +23,14 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-azuretools.vscode-bicep",
-                "charliermarsh.ruff",
-                "ms-python.python",
-                "ms-python.black-formatter",
-                "microsoft.bicep"
-            ]
+				"ms-azuretools.vscode-bicep",
+				"charliermarsh.ruff",
+				"ms-python.python",
+				"ms-python.black-formatter",
+				"microsoft.bicep",
+				"bierner.github-markdown-preview"
+			]
         }
     },
-    "postBuildCommand": "python demo-code/manage.py migrate && python demo-code/manage.py loaddata demo-code/seed_data.json"
+    "postCreateCommand": "python demo-code/manage.py migrate && python demo-code/manage.py loaddata demo-code/seed_data.json"
 }

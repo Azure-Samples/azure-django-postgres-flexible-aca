@@ -1,4 +1,8 @@
-# Getting Started
+# 🚀 Get Ready for Takeoff
+
+In this lab, you will deploy a Space Tourism site powered by Django and PostgreSQL using Azure Container Apps.
+
+![Relecloud Site](../assets/Relecloud%20Site.png)
 
 01 Getting Started | [02 Examining the Project](./02-examining-project.md) | [03 Testing](./03-testing.md) | [04 Deploying Locally](./04-deploying-locally.md) | [05 Deploying to Azure](./05-deploying-to-azure.md)  
 

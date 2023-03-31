@@ -26,4 +26,4 @@ we've included a GitHub Action that will run our tests for us inside of a contai
 
 ## Next
 
-Proceed to [04 Deploying Lovally](./04-deploying-locally.md)
+Proceed to [04 Deploying Locally](./04-deploying-locally.md)

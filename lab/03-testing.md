@@ -8,16 +8,18 @@ We need to test that our django application works as expected. We have provided 
 navigate to the `demo-code` folder and run the following command:
 
 ```shell
+cd demo-code
 python manage.py test
 ```
 
-## Next
+https://user-images.githubusercontent.com/8632637/229249044-7c8b65d1-3fdc-46a1-9c72-09519452500d.mp4
+
 
 ## Testing via GitHub Actions
 
 This is great, however we don't want to need to remember to run these tests every time we make a change. We can use GitHub Actions to run these tests for us.
 
-we've included a GitHub Action that will run our tests for us inside of a containerized environment.
+we've included a [GitHub Action](../.github/workflows/test.yml) that will run our tests for us inside of a containerized environment.
 
 > **:mag: Explore**
 > You can use the GitHub Actions Extension in VS Code (Included in your DevContainer) to view the GitHub Action that is running our tests.

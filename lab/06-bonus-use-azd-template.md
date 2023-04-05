@@ -2,7 +2,7 @@ If you want to use this as the starting point for your next django project, we h
 
 Run the following command in a new folder.
 ```
-azd init -t azure-django-postgres-aca
+azd init -t https://github.com/Azure-Samples/azure-django-postgres-aca
 ```
 
 This will:

@@ -11,7 +11,7 @@ cd demo-code
 python manage.py runserver
 ```
 
-![video of the commandes to running deploy](video)
+https://user-images.githubusercontent.com/8632637/230239735-d702313b-58f4-4c54-bcb2-68ddd9440b17.mp4
 
 We're using a DB built in our docker compose. We've preseeded some data
 

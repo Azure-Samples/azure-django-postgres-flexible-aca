@@ -1,6 +1,6 @@
 # Examining the Project
 
-[01 Getting Started](./README.md) | 02 Examining the Project | [03 Testing](./03-testing.md) | [04 Deploying Locally](./04-deploying-locally.md) | [05 Deploying to Azure](./05-deploying-to-azure.md)  
+[01 Getting Started](./README.md) | 02 Examining the Project | [03 Testing](./03-testing.md) | [04 Deploying Locally](./04-deploying-locally.md) | [05 Deploying to Azure](./05-deploying-to-azure.md) | [06 Teardown](./06-teardown.md)
 
 
 Before we deploy our application, let's take a look at the project. 

@@ -6,7 +6,10 @@ param allowBlobPublicAccess bool = false
 param containers array = []
 param kind string = 'StorageV2'
 param minimumTlsVersion string = 'TLS1_2'
-param sku object = { name: 'Standard_LRS' }
+param sku object = {
+  name: 'Standard_B1ms'
+  tier: 'Burstable'
+}
 
 resource storage 'Microsoft.Storage/storageAccounts@2022-05-01' = {
   name: name

@@ -4,9 +4,7 @@
 
 ...
 
-## What is Azure Developer CLI (AZD)
 
-Learn more at [link]()
 
 ## Steps to deploy with AZD
 

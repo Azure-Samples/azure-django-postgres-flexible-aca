@@ -18,7 +18,7 @@ We're using a DB built in our docker compose. We've preseeded some data
 >**Note**
 Our devcontainer has the ports forwarded so even in a codespace you will be able to view your running project
 
-![visiting localhost in codespaces](video)
+https://user-images.githubusercontent.com/8632637/230453383-fe762b5c-255b-4bfe-a690-128ba683ea70.mp4
 
 
 ## Next

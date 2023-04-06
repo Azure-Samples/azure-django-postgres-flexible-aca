@@ -1,8 +1,5 @@
 # Deploy Your Project Locally
-
-[01 Getting Started](./README.md) | [02 Examining the Project](./02-examining-project.md) | [03 Testing](./03-testing.md) | 04 Deploying Locally | [05 Deploying to Azure](./05-deploying-to-azure.md)  
-
-...
+[01 Getting Started](./README.md) | [02 Examining the Project](./02-examining-project.md) | [03 Testing](./03-testing.md) | 04 Deploying Locally | [05 Deploying to Azure](./05-deploying-to-azure.md) | [06 Teardown](./06-teardown.md)
 
 While running the tests checks for certain values, fields, and functionality, it is still wise to get a visual confirmation that you know and like what you're deploying.
 

@@ -11,6 +11,5 @@ RUN curl -fsSL https://aka.ms/install-azd.sh | bash
 
 RUN python -m pip install --upgrade pip
 
-COPY demo-code/requirements.txt .
-
-RUN python -m pip install -r requirements.txt
+COPY requirements-dev.txt .
+RUN python -m pip install -r requirements-dev.txt

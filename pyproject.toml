@@ -20,6 +20,7 @@ force-exclude = '''
 '''
 
 [tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "project.settings_local"
 pythonpath = [
   "demo-code"
 ]

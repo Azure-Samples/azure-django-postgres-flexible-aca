@@ -1,8 +1,6 @@
-name: Test
+name: Python Format Check
 on: 
   push:
-    branches: 
-      - main
   pull_request:
     branches: 
       - main
@@ -18,5 +16,18 @@ jobs:
         - name: Check Format
           run: |
                 pip install ruff black
-                ruff .
-                black . --check --verbose
+                ruff . --fix
+                black . --verbose
+        - name: Commit any new changes
+          run: |
+                if [ -z "$(git status --porcelain)" ]; then
+                    echo "No changes to commit"
+                    exit 0
+                fi
+                git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                git config --global user.name "github-actions[bot]"
+                git add .
+                git commit -m "Format code"
+                git push
+
+

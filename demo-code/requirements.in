@@ -8,3 +8,4 @@ azure-keyvault-secrets
 azure-identity
 opencensus-ext-azure
 opencensus-ext-django
+python-dotenv

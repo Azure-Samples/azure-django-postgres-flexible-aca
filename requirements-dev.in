@@ -1,6 +1,2 @@
 -r demo-code/requirements.txt
-pytest
-pytest-cov
-pytest-django
-pytest-playwright
 playwright

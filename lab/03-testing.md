@@ -20,7 +20,7 @@ Install the development requirements via pip:
 
 The first set of tests we'll run are the Django tests. These tests are run inside of the container and are a great way to ensure that your application is working as expected. Django does a fantastic job of setup and teardown of test resources.
 
-Navigate to the `demo-code` folder and run the following command:
+Navigate to the `demo-code` folder and run the `test` command:
 
 > **:computer: Try It!**
 >```shell
@@ -35,14 +35,23 @@ https://user-images.githubusercontent.com/8632637/229249044-7c8b65d1-3fdc-46a1-9
 
 There are some things you can't test without loading the website. For that we'll use [Playwright](https://playwright.dev/), a browser automation library that allows us to run tests against our website. We've included tests that will navigate across multiple pages of the website, similar to how a user would.
 
-We've written the Playwright tests using Django's `StaticLiveServerTestCase`. Run them with the following command:
+First, install Playwright and its dependencies, the headless browser builds. ⚠️ If you're on an M1 Mac, it's not possible to run the browsers from inside the Dev Container. In that case, either use GitHub Codespaces or a local virtual environment.
 
 > **:computer: Try It**
-```python
-python manage.py test relecloud.playwright
+```shell
+playwright install
+playwright install-deps
 ```
 
-It's also possible (and common) to write Playwright tests using `pytest` and the `pytest-playwright` plugin.
+Playwright tests can be written using either the `pytest` framework or the `unittest` framework. The tests we've included use the `unittest` framework by extending Django's `StaticLiveServerTestCase`. 
+
+Navigate to the `demo-code` folder and run the `test` command:
+
+> **:computer: Try It**
+```shell
+cd demo-code
+python manage.py test relecloud.playwright
+```
 
 > **📖 Learn More**
 > 

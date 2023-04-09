@@ -84,7 +84,7 @@
         "pk": 1,
         "fields": {
             "name": "The Sun Tour",
-            "description": "pdfs",
+            "description": "A short tour of the sun plus the planet that relies on it for life.",
             "destinations": [
                 1,4
             ]
@@ -95,7 +95,7 @@
         "pk": 2,
         "fields": {
             "name": "The Hot Tour",
-            "description": "pdfs",
+            "description": "A tour of all the hottest planets in the solar system. Wear shades!",
             "destinations": [
                 1,2,3,4,5
             ]
@@ -106,7 +106,7 @@
         "pk": 3,
         "fields": {
             "name": "The Cold Tour",
-            "description": "pdfs",
+            "description": "A tour of the coldest planets in the solar system. Brrr! Better bundle up for this one!",
             "destinations": [
                 4,7,8,9,10
             ]
@@ -117,7 +117,7 @@
         "pk": 4,
         "fields": {
             "name": "The Central Tour",
-            "description": "pdfs",
+            "description": "A leisurely tour through the middle planets of the solar system.",
             "destinations": [
                 4,5,6,7,8
             ]
@@ -127,7 +127,7 @@
         "pk": 5,
         "fields": {
             "name": "The Big Tour",
-            "description": "pdfs",
+            "description": "See them all! If you easily get FOMO, this tour is the one for you. Wear layers, temperatures are highly variable!",
             "destinations": [
                 1,2,3,4,5,6,7,8,9,10
             ]

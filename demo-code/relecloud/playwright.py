@@ -39,7 +39,26 @@ class DemoCodeTests(StaticLiveServerTestCase):
         )
         page.close()
 
-    def test_login(self):
+    def test_destinations(self):
+        page = self.browser.new_page()
+        page.goto(self.live_server_url)
+        page.get_by_role("link", name="Destinations").click()
+        expect(page.get_by_role("heading", name="Cruise destinations")).to_be_visible()
+        page.get_by_role("link", name="Mars").click()
+        expect(page.get_by_role("heading", name="Mars")).to_be_visible()
+        expect(page.get_by_text("It's red")).to_be_visible()
+        page.get_by_role("link", name="The Hot Tour").click()
+        expect(page.get_by_role("heading", name="The Hot Tour")).to_be_visible()
+        page.get_by_role("link", name="Mercury").click()
+        expect(page.get_by_role("heading", name="Mercury")).to_be_visible()
+
+    def test_about(self):
+        page = self.browser.new_page()
+        page.goto(self.live_server_url)
+        page.get_by_role("link", name="About").click()
+        expect(page.get_by_role("heading", name="About ReleCloud")).to_be_visible()
+
+    def test_admin_login_not_allowed(self):
         page = self.browser.new_page()
         page.goto(f"{self.live_server_url}/admin/")
         page.wait_for_selector("text=Django administration")

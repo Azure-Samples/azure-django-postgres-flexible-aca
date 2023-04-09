@@ -131,3 +131,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .azure
+
+# From collectstatic
+staticfiles/

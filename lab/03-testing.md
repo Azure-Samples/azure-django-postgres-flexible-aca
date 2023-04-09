@@ -13,7 +13,7 @@ Install the development requirements via pip:
 
 > **:computer: Try It!**
 >```shell
-> python3 -m pip install -r requirements-dev.txt
+> python -m pip install -r requirements-dev.txt
 > ```
 
 ## Testing via Django Tests
@@ -23,8 +23,9 @@ The first set of tests we'll run are the Django tests. These tests are run insid
 Navigate to the `demo-code` folder and run the `test` command:
 
 > **:computer: Try It!**
->```shell
+> ```shell
 > cd demo-code
+> python manage.py collectstatic
 > python manage.py test relecloud.tests
 > ```
 
@@ -38,20 +39,21 @@ There are some things you can't test without loading the website. For that we'll
 First, install Playwright and its dependencies, the headless browser builds. ⚠️ If you're on an M1 Mac, it's not possible to run the browsers from inside the Dev Container. In that case, either use GitHub Codespaces or a local virtual environment.
 
 > **:computer: Try It**
-```shell
-playwright install
-playwright install-deps
-```
+> ```shell
+> playwright install
+> playwright install-deps
+> ```
 
 Playwright tests can be written using either the `pytest` framework or the `unittest` framework. The tests we've included use the `unittest` framework by extending Django's `StaticLiveServerTestCase`. 
 
 Navigate to the `demo-code` folder and run the `test` command:
 
 > **:computer: Try It**
-```shell
-cd demo-code
-python manage.py test relecloud.playwright
-```
+> ```shell
+> cd demo-code
+> python manage.py collectstatic
+> python manage.py test relecloud.playwright
+> ```
 
 > **📖 Learn More**
 > 

@@ -92,8 +92,6 @@ pycparser==2.21
     # via cffi
 pyjwt[crypto]==2.6.0
     # via msal
-python-dotenv==1.0.0
-    # via -r demo-code/requirements.in
 requests==2.28.2
     # via
     #   azure-core

@@ -43,12 +43,13 @@ jobs:
             python -m pip install -r requirements-dev.txt
             playwright install
             playwright install-deps
-      - name: Connect to PostgreSQL
+      - name: Run migrations and Playwright tests
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data.
         run: |
             cd demo-code
             python manage.py migrate
+            python manage.py collectstatic
             python manage.py test relecloud.playwright
         # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:

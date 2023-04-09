@@ -6,9 +6,6 @@ on:
   pull_request: 
     branches:
       - main
-defaults:
-  run:
-    working-directory: demo-code
 
 jobs:
   # Label of the container job
@@ -44,13 +41,14 @@ jobs:
       # Performs a clean installation of all dependencies in the `package.json` file
       # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
+        run: python -m pip install -r requirements-dev.txt
 
       - name: Connect to PostgreSQL
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data.
         run: |
             python manage.py migrate
+            python manage.py collectstatic
             python manage.py test
             python -m pytest
         # Environment variables used by the `client.js` script to create a new PostgreSQL table.

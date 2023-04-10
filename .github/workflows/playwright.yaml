@@ -1,8 +1,6 @@
-name: Run Django Unittests
+name: Run Playwright tests
 on: 
   push:
-    # branches:
-    #   - main
   pull_request: 
     branches:
       - main
@@ -41,17 +39,18 @@ jobs:
       # Performs a clean installation of all dependencies in the `package.json` file
       # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
-        run: python -m pip install -r requirements-dev.txt
-
-      - name: Connect to PostgreSQL
+        run: |
+            python -m pip install -r requirements-dev.txt
+            playwright install
+            playwright install-deps
+      - name: Run migrations and Playwright tests
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data.
         run: |
             cd demo-code
             python manage.py migrate
-            python manage.py collectstatic --no-input
-            python manage.py test
-            python -m pytest relecloud/tests.py
+            python manage.py collectstatic
+            python manage.py test relecloud.playwright
         # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
           # The hostname used to communicate with the PostgreSQL service container

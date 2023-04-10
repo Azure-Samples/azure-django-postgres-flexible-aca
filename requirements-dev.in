@@ -1,6 +1,6 @@
 -r demo-code/requirements.txt
+playwright
 pytest
 pytest-cov
 pytest-django
-pytest-playwright
-playwright
+pip-tools

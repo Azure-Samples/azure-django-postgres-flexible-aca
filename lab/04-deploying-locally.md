@@ -3,7 +3,7 @@
 
 While running the tests checks for certain values, fields, and functionality, it is still wise to get a visual confirmation that you know and like what you're deploying.
 
-We can give our Django application a test-run using the `runserver` command the `runserver` command. Since we're in a containerized environment we will not use the default `127.0.0.1:8000` but instead `0.0.0.0:8000`.
+We can give our Django application a test run using the `runserver` command. Since we're in a containerized environment, we will not use the default `127.0.0.1:8000` but instead `0.0.0.0:8000`.
 
 > **💻 Try It**
 > ```python

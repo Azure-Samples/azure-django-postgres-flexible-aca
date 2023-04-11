@@ -12,11 +12,16 @@ To setup your GitHub repo, run the following command:
 azd pipeline config
 ```
 
-Enter the required information. The information required by the workflow will be added to your GitHub repo.
+Enter the required information. 
+
+https://user-images.githubusercontent.com/8632637/231233580-c0f1d520-f81d-4db5-931e-2b96cb7d2ec6.mp4
+
+
+The information required by the workflow will be added to your GitHub repo.
 
 ![GitHub Actions Secrets and Variables](../assets/action-secrets-and-vars.png)
 
-### Running the GitHub Action
+## Running the GitHub Action
 
 Once that is complete you can run the GitHub Action.
 

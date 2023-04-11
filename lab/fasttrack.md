@@ -33,7 +33,7 @@ Give your project a unique name. Select location for your application. Note free
 
 Add your `POSTGRES_DATABASE_NAME` and `POSTGREST_USER` in the file located in your `.azure/YOUR_PROJECT_NAME`.
 
-For this demo your `POSTGRES_DATABASE_NAME` will be `relecloud` and your `POSTGREST_USER` will be `postgres`.
+For this demo your `POSTGRES_DATABASE_NAME` will be `relecloud` and your `POSTGRES_USER` will be `postgres`.
 
 ```bash
 .azure

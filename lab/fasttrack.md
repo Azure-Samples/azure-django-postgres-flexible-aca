@@ -39,7 +39,7 @@ For this demo your `POSTGRES_DATABASE_NAME` will be `relecloud` and your `POSTGR
 .azure
 ├── config.json
 └── jm-django-pg-aca # Your Project Folder
-   ├── .env # <-- Add your POSTGRES_DATABASE_NAME and POSTGREST_USER here
+   ├── .env # <-- Add your POSTGRES_DATABASE_NAME and POSTGRES_USER here
    └── config.json
 ```
 

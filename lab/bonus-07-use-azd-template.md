@@ -16,7 +16,6 @@ Enter the required information.
 
 https://user-images.githubusercontent.com/8632637/231233580-c0f1d520-f81d-4db5-931e-2b96cb7d2ec6.mp4
 
-
 The information required by the workflow will be added to your GitHub repo.
 
 ![GitHub Actions Secrets and Variables](../assets/action-secrets-and-vars.png)

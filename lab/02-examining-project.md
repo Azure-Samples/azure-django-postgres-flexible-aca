@@ -10,7 +10,7 @@ Before we deploy our application, let's take a look at the project.
 .
 ├── .devcontainer
 │  ├── Dockerfile_dev
-│  ├── docker-compose.yml
+│  ├── docker-compose_dev.yml
 ├── demo-code
 │  ├── Dockerfile
 │  ├── manage.py

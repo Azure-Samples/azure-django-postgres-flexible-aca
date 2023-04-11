@@ -25,4 +25,5 @@ We've intentionally commented out the automated deployment steps but you can unc
 3. A blue banner that says "This workflow has a workflow_dispatch event trigger will appear in the main section of the page. Click the _Run workflow_ button.
 4. A _Use workflow from_ window will appear. Click the green _Run workflow_ button. 
 
-![Manual Deployment with GH Action Steps](../assets/manually-deploy-azure-deployment-gh-action.png)
+https://user-images.githubusercontent.com/8632637/231231358-bd5f70e4-a5e9-42c6-9c0f-33885629c529.mp4
+

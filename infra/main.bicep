@@ -42,7 +42,7 @@ module keyVault './core/security/keyvault.bicep' = {
   name: 'keyvault'
   scope: resourceGroup
   params: {
-    name: '${take(prefix, 17)}-vault'
+    name: '${take(replace(prefix, '-', ''), 17)}-vault'
     location: location
     tags: tags
     principalId: principalId

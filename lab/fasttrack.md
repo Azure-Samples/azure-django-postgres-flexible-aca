@@ -55,3 +55,25 @@ POSTGRES_USER="postgres"
 ```
 
 ### Deploy your Application
+
+Use the following command to deploy your application.
+
+```bash
+azd up
+```
+
+Your application will provision and deploy. This will take some time to complete.
+
+https://user-images.githubusercontent.com/8632637/230491736-739b896e-1965-4707-8146-5a1e480ef344.mp4
+
+Once the deployment is finished, visit your site by clicking the link.
+
+https://user-images.githubusercontent.com/8632637/230491846-84d2a979-fc65-4555-a6e8-824f7034c54e.mp4
+
+## Teardown
+
+You can tear down your application by running the following command.
+
+```bash
+azd down --purge
+```

@@ -9,6 +9,10 @@ In this lab, you will deploy a Space Tourism site powered by Django and PostgreS
 
 The steps below will get you up and running to deploy the Relecloud Django application to Azure Container Apps.
 
+> **:car:💨 Fast Track**
+> 
+> If you are an experienced Django developer interested in learning how to deploy the application to Azure, check out our [Fast Track](./fasttrack.md). This walks you through the steps to deploy the application to Azure Container Apps, skipping the breakdown and testing stages. [Take the Fast Track](./fasttrack.md)
+
 ## Get Started
 ### Create your own repo from this template
 

@@ -1,9 +1,16 @@
 name: Python Format Check
 on: 
   push:
+    branches:
+      - main
   pull_request:
     branches: 
       - main
+    paths-ignore:
+      - '**.md'
+      - 'lab/**'
+      - 'assets/**'
+
 jobs:
     checks-format:
         runs-on: ubuntu-latest

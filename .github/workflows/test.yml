@@ -6,6 +6,11 @@ on:
   pull_request: 
     branches:
       - main
+    paths-ignore:
+      - '**.md'
+      - 'lab/**'
+      - 'assets/**'
+
 
 jobs:
   # Label of the container job

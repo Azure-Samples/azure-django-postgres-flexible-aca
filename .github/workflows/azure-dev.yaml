@@ -1,7 +1,8 @@
 name: Azure Developer CLI
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # You can manually trigger this action via the GitHub Interface
+  # Uncomment the lines below to deploy when changes are made to the main branch
   # push:
   #   branches:
   #     - main

@@ -8,6 +8,7 @@ This fast track will guide you through the process of deploying this application
 
 ## Prerequisites
 
+- [Azure Account - Create a Free Account Today)[https://aka.ms/azurefree)
 - [Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd)
 
 ## Deploying the Application

@@ -30,31 +30,6 @@ azd init -t https://github.com/Azure-Samples/azure-django-postgres-aca
 
 Give your project a unique name. Select location for your application. Note free resources may be restricted in some regions.
 
-### Add PostgreSQL environment variables to the env
-
-Add your `POSTGRES_DATABASE_NAME` and `POSTGRES_USER` in the *.env* file located in `.azure/YOUR_PROJECT_NAME`.
-
-For this demo your `POSTGRES_DATABASE_NAME` will be `relecloud` and your `POSTGRES_USER` will be `postgres`.
-
-```bash
-.azure
-├── config.json
-└── jm-django-pg-aca # Your Project Folder
-   ├── .env # <-- Add your POSTGRES_DATABASE_NAME and POSTGRES_USER here
-   └── config.json
-```
-
-Your env file should look similar to this.
-
-```shell
-AZURE_ENV_NAME="jm-django-pg-aca" # Provided by AZD init
-AZURE_LOCATION="eastus" # Provided by AZD init
-AZURE_PRINCIPAL_ID="YOUR-PRINCIPLE-ID" # Provided by AZD init
-AZURE_SUBSCRIPTION_ID="YOUR-SUBSCRIPTION-ID" # Provided by AZD init
-POSTGRES_DATABASE_NAME="relecloud"
-POSTGRES_USER="postgres"
-```
-
 ### Deploy your Application
 
 Use the following command to deploy your application.

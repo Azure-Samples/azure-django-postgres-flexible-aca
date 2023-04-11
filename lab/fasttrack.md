@@ -32,7 +32,7 @@ Give your project a unique name. Select location for your application. Note free
 
 ### Add PostgreSQL environment variables to the env
 
-Add your `POSTGRES_DATABASE_NAME` and `POSTGREST_USER` in the file located in your `.azure/YOUR_PROJECT_NAME`.
+Add your `POSTGRES_DATABASE_NAME` and `POSTGRES_USER` in the *.env* file located in `.azure/YOUR_PROJECT_NAME`.
 
 For this demo your `POSTGRES_DATABASE_NAME` will be `relecloud` and your `POSTGRES_USER` will be `postgres`.
 

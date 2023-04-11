@@ -30,7 +30,7 @@ You may notice we have 2 Docker Compose files and 2 Dockerfiles. [docker-compose
 
 > **:book: Learn More**
 > 
-> Learn more about [creating dev containers](https://containers.dev)
+> Learn more about [creating Dev Containers](https://containers.dev)
 
 ## Infrastructure as Code and Azure Developer CLI (AZD)
 

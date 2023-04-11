@@ -9,10 +9,10 @@ ReleCloud - {{ cruise }}
 <p>
 {{ cruise.description }}
 </p>
-<p>You can explore {{ cruise }} on the following cruises:</p>
-<ul class="list-group">
+<p>This cruise visits the following destinations:</p>
+<div class="list-group">
     {% for destination in cruise.destinations.all %}
     <a class="list-group-item list-group-item-action" href="{% url 'destination_detail' destination.id %}">{{ destination }}</a>
     {% endfor %}
-</ul>
+</div>
 {% endblock content %}

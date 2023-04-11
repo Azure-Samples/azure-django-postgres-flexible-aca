@@ -1,0 +1,6 @@
+-r demo-code/requirements.txt
+playwright
+pytest
+pytest-cov
+pytest-django
+pip-tools

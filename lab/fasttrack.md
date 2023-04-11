@@ -29,7 +29,7 @@ azd init -t https://github.com/Azure-Samples/azure-django-postgres-aca
 
 Give your project a unique name. Select location for your application. Note free resources may be restricted in some regions.
 
-### Add POSTGRES ENVIRONMENT variables to the env
+### Add PostgreSQL environment variables to the env
 
 Add your `POSTGRES_DATABASE_NAME` and `POSTGREST_USER` in the file located in your `.azure/YOUR_PROJECT_NAME`.
 

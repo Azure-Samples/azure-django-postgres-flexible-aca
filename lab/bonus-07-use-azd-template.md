@@ -1,6 +1,6 @@
 # Bonus: Using AZD + GitHub Actions to Manage your Deployment
 
-You can also redeploy your project to Azure using GitHub Actions. This will allow you to redeploy your project to Azure when changes are made without manually running `AZD deploy`.
+You can also redeploy your project to Azure using GitHub Actions. This will allow GitHub to redeploy your project to Azure when changes are made without manually running `azd deploy`.
 
 ## Using GitHub Actions
 

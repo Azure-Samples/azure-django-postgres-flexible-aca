@@ -22,7 +22,7 @@ The information required by the workflow will be added to your GitHub repo.
 
 ## Running the GitHub Action
 
-Once that is complete you can run the GitHub Action.
+Once that is complete you can run the GitHub Action workflow.
 
 We've intentionally commented out the automated deployment steps but you can uncomment them to automatically deploy your project to Azure. For now, we can manually trigger the deployment using the GitHub Actions tab.
 

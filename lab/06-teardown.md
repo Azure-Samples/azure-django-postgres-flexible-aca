@@ -14,6 +14,4 @@ azd down --purge
 
 This will take a little bit of time to complete.
 
-![Video of the azd down command](VIDEO) #TODO: REMOVE
-
 Our resources and the associated resource group have been deleted.

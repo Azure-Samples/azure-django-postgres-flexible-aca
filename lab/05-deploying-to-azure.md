@@ -95,10 +95,10 @@ https://user-images.githubusercontent.com/8632637/230491934-9e6d7f3a-3953-424b-a
 
 Congratulations, you have successfully deployed a Django Application via Azure Container Apps!
 
-If you would like to tear down your resources see [06-Teardown](./06-teardown.md)
+You will likely want to tear down your resources to avoid incurring costs. Proceed to [06-Teardown](./06-teardown.md) to tear down your resources.
 
 ### Bonus
 
-We've talked a lot about how we brought this project to life and how we can deploy it to Azure. We can simplify this deployment down to a bit by fully embracing the power of Azure Developer CLI and GitHub Actions.
+We've talked a lot about how we brought this project to life and how we can deploy it to Azure. We can simplify this deployment a lot by fully embracing the power of Azure Developer CLI and GitHub Actions.
 
 Check out the bonus section which walks through those steps.

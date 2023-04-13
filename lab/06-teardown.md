@@ -14,8 +14,7 @@ azd down --purge
 
 This will take a little bit of time to complete.
 
-
 https://user-images.githubusercontent.com/8632637/231804244-f0454d8b-d4c0-4bc5-b26b-5575e94650e7.mp4
 
 
-Our resources and the associated resource group have been deleted.
+**Our resources and the associated resource group have been deleted.**

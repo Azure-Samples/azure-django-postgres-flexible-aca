@@ -28,9 +28,13 @@
 				"ms-python.python",
 				"ms-python.black-formatter",
 				"microsoft.bicep",
-				"bierner.github-markdown-preview"
+				"bierner.github-markdown-preview",
+                "ms-azuretools.vscode-docker"
 			]
         }
     },
-    "postCreateCommand": "python demo-code/manage.py migrate && python demo-code/manage.py loaddata demo-code/seed_data.json"
+	"postCreateCommand": "python demo-code/manage.py migrate && python demo-code/manage.py loaddata demo-code/seed_data.json",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+	}
 }

@@ -14,6 +14,6 @@ azd down --purge
 
 This will take a little bit of time to complete.
 
-![Video of the azd down command](VIDEO) #TODO: REMOVE
+https://user-images.githubusercontent.com/8632637/231798304-d8a67aa4-8cde-4eac-b16e-d41374832220.mp4
 
 Our resources and the associated resource group have been deleted.

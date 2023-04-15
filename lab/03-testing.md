@@ -2,7 +2,7 @@
 
 # Testing
 
-We need to test that our Django application works as expected. We have provided some tests that ensure that you can visit all of the urls and that the data is being returned as expected.
+We need to test that our Django application works as expected. We have provided some tests to ensure that you can visit all of the urls and that the data is being returned as expected.
 
 ## Installing the prerequisites
 
@@ -16,7 +16,7 @@ Install the development requirements via pip:
 > python -m pip install -r requirements-dev.txt
 > ```
 
-## Testing via Django Tests
+## Testing via Django tests
 
 The first set of tests we'll run are the Django tests. These tests are run inside of the container and are a great way to ensure that your application is working as expected. Django does a fantastic job of setup and teardown of test resources.
 
@@ -40,8 +40,7 @@ First, install Playwright and its dependencies, the headless browser builds. ⚠
 
 > **:computer: Try It**
 > ```shell
-> playwright install
-> playwright install-deps
+> playwright install --with-deps
 > ```
 
 Playwright tests can be written using either the `pytest` framework or the `unittest` framework. The tests we've included use the `unittest` framework by extending Django's `StaticLiveServerTestCase`. 
@@ -66,12 +65,12 @@ Navigate to the `demo-code` folder and run the `test` command:
 
 ## Testing via GitHub Actions
 
-This is great, however we don't want to need to remember to run these tests every time we make a change. We can use GitHub Actions to run these tests for us.
+This is great, however we may forget to run these tests every time we make a change. We can use GitHub Actions to run these tests for us.
 
 We've included a [GitHub Action](../.github/workflows/test.yml) that will run our tests for us inside of a containerized environment.
 
 > **:mag: Explore**
-> You can use the GitHub Actions Extension in VS Code (Included in your DevContainer) to view the GitHub Action that is running our tests.
+> You can use the GitHub Actions Extension in VS Code (included in your Dev Container) to view the GitHub Action that is running our tests.
 
 ![The GitHub Actions Pane in VS Code](../assets/view%20Actions.png)
 

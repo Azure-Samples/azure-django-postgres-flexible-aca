@@ -17,7 +17,7 @@ This ensures that our application is connected to our database as expected and t
 
 Since we're using the DB build from our docker compose, we've pre-seeded the database with some data for you.
 
-Our devcontainer has the ports forwarded so even in a codespace you will be able to view your running project
+Our Dev Container has the ports forwarded so that even in a Codespace, you will be able to view your running project.
 
 https://user-images.githubusercontent.com/8632637/230453383-fe762b5c-255b-4bfe-a690-128ba683ea70.mp4
 

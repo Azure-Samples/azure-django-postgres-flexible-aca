@@ -58,6 +58,12 @@ Once the deployment is finished, visit your site by clicking the link.
 
 ## Teardown
 
+
+> **Warning: **
+> 
+> **Teardown your project when finished with the lab to avoid recurring charges.**
+> Though we've made an effort to utilize the cheapest and whenever possible free resources, leaving these resources running may accrue charges. Please completely de-provision your resources once no longer needed.
+
 You can tear down your application by running the following command:
 
 ```bash

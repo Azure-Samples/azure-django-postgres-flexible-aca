@@ -36,7 +36,7 @@ You can choose to work inside your browser or open that Codespace using your loc
 
 1. Open **your repo** that you have created from Azure-Samples/azure-django-postgres-aca, click Code at the top right, and on the Local tab, copy the clone command for `HTTPS`, `SSH`, or `GitHub CLI` as appropriate.
 2. Run the clone command on your local machine to clone the repo locally. 
-3. Open the repo inside VS Code with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). ⚠️ Unfortunately, If you're on an Apple M1/M2, it's not currently possible to open this project in a Dev Container. Use GitHub Codespaces or a virtual environment instead.
+3. Open the repo inside VS Code with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). ⚠️ Unfortunately, If you're on an Apple M1/M2, it's not currently possible to open this project in a Dev Container. Please use GitHub Codespaces to ensure that you have all the necessary dependencies and configurations.
 
 ### Do I need a virtual environment and `pip install`?
 

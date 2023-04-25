@@ -13,7 +13,23 @@ If you're using VS Code we recommend that you develop in a dev container. This w
 
 ### Deploy to Azure
 
-You can deploy your application from your cloned repo using Azure Developer CLI and the `azd up` command.
+You can deploy your application from your cloned repo using Azure Developer CLI.
+1. Open a terminal, create a new empty folder, and change into it.
+2. Initialize your project using the following command:
+
+`azd init --template azure-django-postgres-aca`
+
+This command will clone the code to your current folder and prompt you for the following information:
+
+- Environment Name: This will be used as a prefix for the resource group that will be created to hold all Azure resources. This name should be unique within your Azure subscription.
+
+3. Provision and deploy your project with the following command
+`azd up`
+
+This command will prompt you for the following information:
+
+Azure Location: The Azure location where your resources will be deployed.
+Azure Subscription: The Azure Subscription where your resources will be deployed.
 
 ## Resources
 

@@ -11,8 +11,8 @@
       "principalId": {
         "value": "${AZURE_PRINCIPAL_ID}"
       },
-      "webImageName": {
-        "value": "${SERVICE_WEB_IMAGE_NAME}"
+      "webAppExists": {
+        "value": "${SERVICE_WEB_RESOURCE_EXISTS=false}"
       },
       "postgresPassword": {
         "value": "$(secretOrRandomPassword ${AZURE_KEY_VAULT_NAME} POSTGRESPASSWORD)"

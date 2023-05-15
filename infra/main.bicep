@@ -17,8 +17,7 @@ param postgresPassword string
 @description('Django Secret Key')
 param djangoSecretKey string
 
-@description('The image name for the web service')
-param webImageName string = ''
+param webAppExists bool = false
 
 @description('Id of the user or app to assign application roles')
 param principalId string = ''
@@ -104,9 +103,10 @@ module web 'web.bicep' = {
   name: 'web'
   scope: resourceGroup
   params: {
-    name: '${take(prefix,19)}-containerapp'
+    name: replace('${take(prefix,19)}-ca', '--', '-')
     location: location
-    imageName: webImageName
+    tags: tags
+    identityName: '${prefix}-id-web'
     applicationInsightsName: monitoring.outputs.applicationInsightsName
     containerAppsEnvironmentName: containerApps.outputs.environmentName
     containerRegistryName: containerApps.outputs.registryName
@@ -114,6 +114,9 @@ module web 'web.bicep' = {
     postgresDomainName: postgresServer.outputs.POSTGRES_DOMAIN_NAME
     postgresUser: postgresUser
     postgresDatabaseName: postgresDatabaseName
+    postgresPassword: postgresPassword
+    djangoSecretKey: djangoSecretKey
+    exists: webAppExists
   }
 }
 

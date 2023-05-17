@@ -197,9 +197,9 @@ cryptography==40.0.1 \
     #   azure-identity
     #   msal
     #   pyjwt
-django==4.2 \
-    --hash=sha256:ad33ed68db9398f5dfb33282704925bce044bef4261cd4fb59e4e7f9ae505a78 \
-    --hash=sha256:c36e2ab12824e2ac36afa8b2515a70c53c7742f0d6eaefa7311ec379558db997
+django==4.1.9 \
+    --hash=sha256:adae3a952fd86800094ae6f64aa558572e8b4ba8dfe21f0ed8175147e75a72a1 \
+    --hash=sha256:e9f074a84930662104871bfcea55c3c180c50a0a47739db82435deae6cbaf032
     # via
     #   -r demo-code/requirements.in
     #   crispy-bootstrap4

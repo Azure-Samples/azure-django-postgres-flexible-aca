@@ -1,6 +1,8 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
 
 name: azure-django-postgres-aca
+metadata:
+    template: azure-django-postgres-aca@0.0.1
 infra:
     provider: "bicep"
 services:

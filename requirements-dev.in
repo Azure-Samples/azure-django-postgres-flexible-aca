@@ -1,0 +1,10 @@
+-r src/requirements.txt
+pytest
+coverage
+pytest-cov
+pytest-playwright
+pip-tools
+ruff
+black
+
+pytest-django

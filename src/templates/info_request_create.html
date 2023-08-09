@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+ReleCloud - Request information
+{% endblock title %}
+
+{% block content %}
+<h1 id="page-title">Request information</h2>
+
+{% if message %}
+<p class="alert alert-info">
+    {{ message }}
+</p>
+{% endif %}
+
+<p>Fill out the form below to request information about our cruises</p>
+
+<form method="post">
+    <form method="post" action="/info_request/">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="cruise_id">Cruise:</label>
+        <select name="cruise_id">
+        {% for cruise in cruises %}
+            <option value="{{ cruise.id }}">{{ cruise.name }}</option>
+        {% endfor %}
+        </select><br><br>
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" required></textarea><br><br>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+{% endblock content %}

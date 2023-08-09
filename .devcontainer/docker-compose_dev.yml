@@ -1,0 +1,28 @@
+# This overwrites select settings from the main docker-compose.yml.
+# WARNING: THIS SHOULD NOT BE USED DIRECTLY
+version: '3'
+services:
+  # Update this to the name of the service you want to work with in your docker-compose.yml file
+  db:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: relecloud
+      POSTGRES_HOST: db
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PORT: 5432  
+
+  app:
+    build: 
+      context: .
+      dockerfile: .devcontainer/Dockerfile_dev
+    environment:
+      DBSERVER_USER: postgres
+      DBSERVER_DB: relecloud
+      DBSERVER_HOST: db
+      DBSERVER_PORT: 5432
+      DBSERVER_PASSWORD: postgres
+
+    command: sleep infinity
+
+    volumes:
+      - .:/workspace:cached

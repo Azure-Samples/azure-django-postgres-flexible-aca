@@ -1,0 +1,136 @@
+[
+    {
+        "model": "relecloud.destination",
+        "pk": 1,
+        "fields": {
+            "name": "The Sun",
+            "description": "It's hot"
+        }
+    },
+    {
+        "model": "relecloud.destination",
+        "pk": 2,
+        "fields": {
+            "name": "Mercury",
+            "description": "It's small"
+        }
+    },
+    {
+        "model": "relecloud.destination",
+        "pk": 3,
+        "fields": {
+            "name": "Venus",
+            "description": "It's blue"
+        }
+    },
+    {
+        "model": "relecloud.destination",
+        "pk": 4,
+        "fields": {
+            "name": "Earth",
+            "description": "It's full of water"
+        }
+    },
+    {
+        "model": "relecloud.destination",
+        "pk": 5,
+        "fields": {
+            "name": "Mars",
+            "description": "It's red"
+        }
+    },
+    {
+        "model": "relecloud.destination",
+        "pk": 6,
+        "fields": {
+            "name": "Jupyter",
+            "description": "It's spelt incorrectly"
+        }
+    },
+    {
+        "model": "relecloud.destination",
+        "pk": 7,
+        "fields": {
+            "name": "Saturn",
+            "description": "It's got rings on it"
+        }
+    },
+    {
+        "model": "relecloud.destination",
+        "pk": 8,
+        "fields": {
+            "name": "Uranus",
+            "description": "It's got a silly name"
+        }
+    },
+    {
+        "model": "relecloud.destination",
+        "pk": 9,
+        "fields": {
+            "name": "Neptune",
+            "description": "It's cold"
+        }
+    },
+    {
+        "model": "relecloud.destination",
+        "pk": 10,
+        "fields": {
+            "name": "Pluto",
+            "description": "It's not a planet"
+        }
+    },
+    {
+        "model": "relecloud.cruise",
+        "pk": 1,
+        "fields": {
+            "name": "The Sun Tour",
+            "description": "A short tour of the sun plus the planet that relies on it for life.",
+            "destinations": [
+                1,4
+            ]
+        }
+    },
+    {
+        "model": "relecloud.cruise",
+        "pk": 2,
+        "fields": {
+            "name": "The Hot Tour",
+            "description": "A tour of all the hottest planets in the solar system. Wear shades!",
+            "destinations": [
+                1,2,3,4,5
+            ]
+        }
+    },
+    {
+        "model": "relecloud.cruise",
+        "pk": 3,
+        "fields": {
+            "name": "The Cold Tour",
+            "description": "A tour of the coldest planets in the solar system. Brrr! Better bundle up for this one!",
+            "destinations": [
+                4,7,8,9,10
+            ]
+        }
+    },
+    {
+        "model": "relecloud.cruise",
+        "pk": 4,
+        "fields": {
+            "name": "The Central Tour",
+            "description": "A leisurely tour through the middle planets of the solar system.",
+            "destinations": [
+                4,5,6,7,8
+            ]
+        }
+    },{
+        "model": "relecloud.cruise",
+        "pk": 5,
+        "fields": {
+            "name": "The Big Tour",
+            "description": "See them all! If you easily get FOMO, this tour is the one for you. Wear layers, temperatures are highly variable!",
+            "destinations": [
+                1,2,3,4,5,6,7,8,9,10
+            ]
+        }
+    }
+]

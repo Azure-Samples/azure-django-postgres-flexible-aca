@@ -27,5 +27,6 @@
       "_template": "https://github.com/kjaymiller/cookiecutter-relecloud"
     }
   },
-  "directory": null
+  "directory": null,
+  "skip": ["lab"]
 }

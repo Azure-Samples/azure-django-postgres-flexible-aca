@@ -1,10 +1,16 @@
 -r src/requirements.txt
-pytest
-coverage
-pytest-cov
-pytest-playwright
+
+# Cookiecutter Support
+cruft
 pip-tools
+
+# Testing Tools
+coverage
+pytest
+pytest-cov
+pytest-django
+pytest-playwright
+
+# Linters
 ruff
 black
-
-pytest-django

@@ -1,10 +1,10 @@
 name: Python Format Check
-on: 
+on:
   push:
     branches:
       - main
   pull_request:
-    branches: 
+    branches:
       - main
     paths-ignore:
       - '**.md'
@@ -28,5 +28,3 @@ jobs:
           run: ruff .
         - name: Check formatting with black
           run: black . --check --verbose
-
-

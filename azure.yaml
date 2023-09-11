@@ -7,9 +7,9 @@ infra:
     provider: "bicep"
 services:
     web:
-        project: src 
-        module: web
+        project: src
         language: py
+        module: web
         host: containerapp
 
 

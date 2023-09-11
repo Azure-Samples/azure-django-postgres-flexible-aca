@@ -30,7 +30,9 @@ if not prod:  # Running in a Test Environment
 else:  # Running is Production
     DEBUG = False
     DEFAULT_SECRET = None
-    ALLOWED_HOSTS = [os.environ["CONTAINER_APP_NAME"] + "." + os.environ["CONTAINER_APP_ENV_DNS_SUFFIX"]]
+    ALLOWED_HOSTS = [
+        os.environ["CONTAINER_APP_NAME"] + "." + os.environ["CONTAINER_APP_ENV_DNS_SUFFIX"],
+    ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = os.environ.get("SECRET_KEY", DEFAULT_SECRET)
@@ -99,11 +101,11 @@ OPENCENSUS = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("DBSERVER_DB"),
-        "USER": os.environ.get("DBSERVER_USER"),
-        "PASSWORD": os.environ.get("DBSERVER_PASSWORD"),
-        "HOST": os.environ.get("DBSERVER_HOST"),
-        "PORT": os.environ.get("DBSERVER_PORT"),
+        "NAME": os.environ.get("POSTGRES_DATABASE"),
+        "USER": os.environ.get("POSTGRES_USERNAME"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "HOST": os.environ.get("POSTGRES_HOST"),
+        "PORT": os.environ.get("POSTGRES_PORT"),
     }
 }
 
@@ -136,8 +138,6 @@ LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 
 USE_I18N = True
-
-USE_L10N = True
 
 USE_TZ = True
 

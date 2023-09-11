@@ -83,8 +83,9 @@
         "model": "relecloud.cruise",
         "pk": 1,
         "fields": {
-            "name": "The Sun Tour",
-            "description": "A short tour of the sun plus the planet that relies on it for life.",
+            "name": "The Sun and Earth",
+            "subtitle": "Exploring the Heart of the Solar System",
+            "description": "Embark on a celestial voyage unlike any other with our \"Sun Tour.\" Delve into the very core of our solar system as we journey to the awe-inspiring Sun, a blazing star that radiates warmth and light, nurturing all life on Earth. Experience the intensity of the Sun's fusion reactions that power our world, and gain a deeper understanding of the intricate cosmic dance that sustains us. But the adventure doesn't end there -- we'll also visit Earth, our home planet. With its lush landscapes, vast oceans, and a vibrant array of life, Earth stands as a testament to the incredible diversity and resilience of life in the universe.",
             "destinations": [
                 1,4
             ]
@@ -94,8 +95,9 @@
         "model": "relecloud.cruise",
         "pk": 2,
         "fields": {
-            "name": "The Hot Tour",
-            "description": "A tour of all the hottest planets in the solar system. Wear shades!",
+            "name": "The Hottest Planets Tour",
+            "subtitle": "A Scorching Odyssey",
+            "description": "The Hottest Planets Tour\n\nPrepare to be immersed in the extremes of the solar system with our \"Hot Tour.\" This thrilling journey will take you to the planets that truly sizzle under the Sun's relentless rays. Witness the fiery inferno of Mercury, the closest planet to the Sun, where temperatures swing wildly between scorching days and freezing nights. Feel the heat of Venus, shrouded in thick clouds and harboring an atmosphere so dense it could crush a spacecraft. Traverse the rusty landscapes of Mars, a world of captivating mysteries and potential evidence of past liquid water. From one inferno to another, our \"Hot Tour\" promises an unforgettable adventure through the hottest realms of our cosmic neighborhood.",
             "destinations": [
                 1,2,3,4,5
             ]
@@ -105,8 +107,9 @@
         "model": "relecloud.cruise",
         "pk": 3,
         "fields": {
-            "name": "The Cold Tour",
-            "description": "A tour of the coldest planets in the solar system. Brrr! Better bundle up for this one!",
+            "name": "The Cold Planets Expedition",
+            "subtitle": "Icy Realms and Distant Wonders",
+            "description": "Brace yourself for an expedition to the icy wonders of the solar system on our \"Cold Tour.\" This unique journey will transport you to the frigid landscapes of the outer planets, where frozen landscapes and majestic rings await. Marvel at Saturn's resplendent ring system, a captivating dance of icy particles that encircle the gas giant. Discover the quirky tilt of Uranus, a planet that defies convention with its sideway rotation. Venture to Neptune, the distant ice giant with its mesmerizing azure hue and powerful winds. This expedition offers a glimpse into the captivating beauty and mysterious forces that shape the outer reaches of our cosmic neighborhood, revealing the hidden wonders that lie beyond the warmth of the Sun.",
             "destinations": [
                 4,7,8,9,10
             ]
@@ -116,18 +119,21 @@
         "model": "relecloud.cruise",
         "pk": 4,
         "fields": {
-            "name": "The Central Tour",
-            "description": "A leisurely tour through the middle planets of the solar system.",
+            "name": "The Central Planets Expedition",
+            "subtitle": "Captivating Encounters",
+            "description": " This leisurely expedition invites you to explore the planets that occupy the cosmic middle ground, each with its own unique charm and allure. Marvel at the regal grandeur of Saturn, crowned with its mesmerizing ring system that has captured the imagination of stargazers for centuries. Witness the awe-inspiring cloud bands of Jupiter, a colossal gas giant that stands as a symbol of the immense forces at play in the universe. Traverse the mysterious landscapes of Mars, a world that beckons with the promise of untold discoveries. Delight in the icy elegance of Uranus and Neptune, two ice giants that reveal the captivating beauty of the outer realms. The \"Central Tour\" promises an unforgettable exploration of the planets that occupy the cosmic sweet spot, offering a deeper appreciation of the diverse tapestry that is our solar system.",
             "destinations": [
                 4,5,6,7,8
             ]
         }
-    },{
+    },
+    {
         "model": "relecloud.cruise",
         "pk": 5,
         "fields": {
-            "name": "The Big Tour",
-            "description": "See them all! If you easily get FOMO, this tour is the one for you. Wear layers, temperatures are highly variable!",
+            "name": "The Grand Solar System Tour",
+            "subtitle": "The Epic Odyssey",
+            "description": "For the ultimate cosmic adventure, look no further than the \"Big Tour.\" Are you plagued by the fear of missing out? This expedition is tailor-made for you. Brace yourself for an odyssey that spans the entire breadth of our solar system, from the scorching brilliance of the Sun to the distant enigma of Pluto. Strap on your layers, as temperatures will vary wildly across this celestial journey. Traverse the rocky terrain of Mercury, experience the toxic atmosphere of Venus, and witness the dynamic beauty of Earth, our blue oasis in space. Explore the Red Planet, Mars, and its potential for harboring life. Soar through the massive clouds of Jupiter and the ethereal rings of Saturn. Encounter the ice giants Uranus and Neptune, and contemplate the icy plains of Pluto. The \"Big Tour\" promises an unparalleled exploration of our cosmic neighborhood, allowing you to witness the astonishing diversity and splendor of each planet in our solar system.",
             "destinations": [
                 1,2,3,4,5,6,7,8,9,10
             ]

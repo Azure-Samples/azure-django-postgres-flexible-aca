@@ -9,6 +9,12 @@ class Destination(models.Model):
         null=False,
         blank=False,
     )
+    subtitle = models.CharField(
+        unique=False,
+        max_length=240,
+        null=False,
+        blank=True,
+    )
     description = models.TextField(max_length=2000, null=False, blank=False)
 
     def __str__(self):
@@ -21,6 +27,12 @@ class Cruise(models.Model):
         max_length=50,
         null=False,
         blank=False,
+    )
+    subtitle = models.CharField(
+        unique=False,
+        max_length=240,
+        null=False,
+        blank=True,
     )
     description = models.TextField(max_length=2000, null=False, blank=False)
     destinations = models.ManyToManyField(Destination, related_name="cruises")

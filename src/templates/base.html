@@ -31,7 +31,7 @@
                     <a class="nav-link" href="{% url 'destinations' %}">Destinations</a>
                 </li>
                 <li class="nav-item">
-                
+
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
             </ul>
@@ -51,13 +51,13 @@
                 </div>
             </div>
         </div>
-        
+
 
         {% if messages %}
             {% for message in messages %}'
             <div class="alert alert-{{message.tags}}" role="alert">
                 <p>{{ message }}</p>
-            </div>   
+            </div>
             {% endfor %}
         {% endif %}
 

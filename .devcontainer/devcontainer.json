@@ -1,15 +1,11 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
 {
-    "name": "Relecloud - django",
+    "name": "relecloud_django_postgres_flexible_aca",
 
     // Update the 'dockerComposeFile' list if you have more compose files or use different names.
     // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
-    "dockerComposeFile": [
-        "../docker-compose.yml",
-        "docker-compose_dev.yml" // Overwrites portions of the prod compose file
-    ],
-
+    "dockerComposeFile": "docker-compose_dev.yml",
     // The 'service' property is the name of the service for the container that VS Code should
     // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
     "service": "app",
@@ -18,7 +14,7 @@
     "forwardPorts": [8000, 5432],
     "portsAttributes": {
         "8000": {"label": "frontend web port", "onAutoForward": "notify"},
-        "5432": {"label": "PostgreSQL port", "onAutoForward": "silent"}
+        "5432": {"label": "PostgreSQL Port", "onAutoForward": "silent"}
     },
     "customizations": {
         "vscode": {
@@ -29,9 +25,9 @@
                 "ms-python.black-formatter",
                 "microsoft.bicep",
                 "bierner.github-markdown-preview",
-                "ms-azuretools.vscode-docker",
                 "mtxr.sqltools",
-                "mtxr.sqltools-driver-pg"
+                "mtxr.sqltools-driver-pg",
+                "ms-azuretools.vscode-docker"
             ],
             "settings": {
                 "sqltools.connections": [
@@ -53,5 +49,7 @@
         // Required for azd to package the app to ACA
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
-    "postCreateCommand": "python src/manage.py migrate && python src/manage.py loaddata src/seed_data.json"
+    "postCreateCommand": "python -m pip install -r requirements-dev.in && python src/manage.py migrate && python src/manage.py loaddata src/seed_data.json"
+
 }
+

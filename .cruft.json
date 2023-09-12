@@ -1,19 +1,17 @@
 {
   "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
-  "commit": "aa5725b836a0f410204793975384659bd5e1d93d",
-  "checkout": null,
+  "commit": "535ea1ab030b5619787d73e301600dd535927fbd",
+  "checkout": "newline-fix",
   "context": {
     "cookiecutter": {
       "project_name": "Relecloud",
-      "version": "0.0.1",
-      "project_host": "aca",
       "project_backend": "django",
-      "use_vnet": "n",
       "db_resource": "postgres-flexible",
-      "__repo_name": "Relecloud-django-postgres-flexible",
-      "__src_folder_name": "relecloud_django_postgres_flexible",
-      "__project_short_description": "Create a relecloud demo application with django and postgres-flexible",
+      "project_host": "aca",
       "web_port": "8000",
+      "__repo_name": "Relecloud-django-postgres-flexible-aca",
+      "__src_folder_name": "relecloud_django_postgres_flexible_aca",
+      "__project_short_description": "Create a relecloud demo application with django and postgres-flexible",
       "_copy_without_render": [
         "root/.github/workflows/*"
       ],

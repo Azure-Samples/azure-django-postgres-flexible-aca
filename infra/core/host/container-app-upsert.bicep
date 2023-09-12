@@ -34,6 +34,10 @@ param daprAppId string = containerName
 @description('Protocol used by Dapr to connect to the app, e.g. http or grpc')
 param daprAppProtocol string = 'http'
 
+// Service options
+@description('PostgreSQL service ID')
+param postgresServiceId string = ''
+
 @description('CPU cores allocated to a single container instance, e.g. 0.5')
 param containerCpuCoreCount string = '0.5'
 
@@ -62,6 +66,7 @@ module app 'container-app.bicep' = {
     daprEnabled: daprEnabled
     daprAppId: daprAppId
     daprAppProtocol: daprAppProtocol
+    postgresServiceId: postgresServiceId
     secrets: secrets
     external: external
     env: env

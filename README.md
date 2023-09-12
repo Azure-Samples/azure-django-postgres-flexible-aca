@@ -1,3 +1,6 @@
+# Deploy Django Application with PostgreSQL via Azure Container Apps
+
+This project deploys a web application for a space travel agency using Django. The application can be deployed to Azure with Azure Container Apps using the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview).
 
 ## Opening the project
 
@@ -26,8 +29,8 @@ If you're not using one of those options for opening the project, then you'll ne
 Run gunicorn on the app:
 
 ```sh
-python3 manage.py collectstatic
-python3 -m gunicorn project.wsgi:application --name relecloud
+python3 src/manage.py collectstatic
+python3 -m gunicorn project.wsgi:application -c src/gunicorn.conf.py --pythonpath src
 ```
 
 ## Running tests
@@ -47,7 +50,7 @@ python3 -m gunicorn project.wsgi:application --name relecloud
 
 ## Deployment
 
-This repo is set up for deployment on [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview) using the `Dockerfile` and the configuration files in the `infra` folder.
+This repo is set up for deployment on Azure via Azure Container Apps.
 
 Steps for deployment:
 
@@ -84,3 +87,4 @@ to be stored as Github action secrets. To set that up, run:
 ```shell
 azd pipeline config
 ```
+

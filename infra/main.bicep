@@ -12,16 +12,18 @@ param location string
 @secure()
 @description('DBServer administrator password')
 param dbserverPassword string
+
 @secure()
 @description('Secret Key')
 param secretKey string
-param webAppExists bool = false
 
+param webAppExists bool = false
 
 @description('Id of the user or app to assign application roles')
 param principalId string = ''
 
 var resourceToken = toLower(uniqueString(subscription().id, name, location))
+var prefix = '${name}-${resourceToken}'
 var tags = { 'azd-env-name': name }
 
 resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
@@ -29,10 +31,6 @@ resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   location: location
   tags: tags
 }
-
-var prefix = '${name}-${resourceToken}'
-var dbserverUser = 'admin${uniqueString(resourceGroup.id)}'
-var dbserverDatabaseName = 'relecloud'
 
 // Store secrets in a keyvault
 module keyVault './core/security/keyvault.bicep' = {
@@ -46,31 +44,20 @@ module keyVault './core/security/keyvault.bicep' = {
   }
 }
 
-
-module dbserver 'core/database/postgresql/flexibleserver.bicep' = {
-  name: 'dbserver'
+module db 'db.bicep' = {
+  name: 'db'
   scope: resourceGroup
   params: {
-    name: '${prefix}-postgresql'
+    name: 'dbserver'
     location: location
     tags: tags
-    sku: {
-      name: 'Standard_B1ms'
-      tier: 'Burstable'
-    }
-    storage: {
-      storageSizeGB: 32
-    }
-    version: '15'
-    administratorLogin: dbserverUser
-    administratorLoginPassword: dbserverPassword
-    databaseNames: [dbserverDatabaseName]
-    allowAzureIPsFirewall: true
+    prefix: prefix
+    dbserverDatabaseName: 'relecloud'
+    dbserverPassword: dbserverPassword
   }
 }
 
 // Monitor application with Azure Monitor
-
 module monitoring 'core/monitor/monitoring.bicep' = {
   name: 'monitoring'
   scope: resourceGroup
@@ -82,7 +69,6 @@ module monitoring 'core/monitor/monitoring.bicep' = {
     logAnalyticsName: '${prefix}-loganalytics'
   }
 }
-
 
 // Container apps host (including container registry)
 module containerApps 'core/host/container-apps.bicep' = {
@@ -102,30 +88,19 @@ module web 'web.bicep' = {
   name: 'web'
   scope: resourceGroup
   params: {
-    name: replace('${take(prefix,19)}-ca', '--', '-')
+    name: replace('${take(prefix, 19)}-ca', '--', '-')
     location: location
     tags: tags
-    identityName: '${prefix}-id-web'
     applicationInsightsName: monitoring.outputs.applicationInsightsName
+    identityName: '${prefix}-id-web'
+    keyVaultName: keyVault.outputs.name
     containerAppsEnvironmentName: containerApps.outputs.environmentName
     containerRegistryName: containerApps.outputs.registryName
-    keyVaultName: keyVault.outputs.name
-    dbserverDomainName: dbserver.outputs.DOMAIN_NAME
-    dbserverUser: dbserverUser
-    dbserverDatabaseName: dbserverDatabaseName
-    dbserverPassword: dbserverPassword
-    secretKey: secretKey
     exists: webAppExists
-  }
-}
-
-// Give the app access to KeyVault
-module webKeyVaultAccess './core/security/keyvault-access.bicep' = {
-  name: 'web-keyvault-access'
-  scope: resourceGroup
-  params: {
-    keyVaultName: keyVault.outputs.name
-    principalId: web.outputs.SERVICE_WEB_IDENTITY_PRINCIPAL_ID
+    dbserverDomainName: db.outputs.dbserverDomainName
+    dbserverUser: db.outputs.dbserverUser
+    dbserverDatabaseName: db.outputs.dbserverDatabaseName
+    dbserverPassword: dbserverPassword
   }
 }
 
@@ -155,9 +130,6 @@ output AZURE_LOCATION string = location
 output AZURE_CONTAINER_ENVIRONMENT_NAME string = containerApps.outputs.environmentName
 output AZURE_CONTAINER_REGISTRY_ENDPOINT string = containerApps.outputs.registryLoginServer
 output AZURE_CONTAINER_REGISTRY_NAME string = containerApps.outputs.registryName
-output DBSERVER_DATABASE_NAME string = dbserverDatabaseName
-output DBSERVER_DOMAIN_NAME string = dbserver.outputs.DOMAIN_NAME
-output DBSERVER_USER string = dbserverUser
 output SERVICE_WEB_IDENTITY_PRINCIPAL_ID string = web.outputs.SERVICE_WEB_IDENTITY_PRINCIPAL_ID
 output SERVICE_WEB_NAME string = web.outputs.SERVICE_WEB_NAME
 output SERVICE_WEB_URI string = web.outputs.SERVICE_WEB_URI

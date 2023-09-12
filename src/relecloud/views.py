@@ -1,3 +1,5 @@
+from typing import Any
+
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -24,6 +26,11 @@ class DestinationDetailView(generic.DetailView):
     template_name = "destination_detail.html"
     model = models.Destination
     context_object_name = "destination"
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["cruises"] = self.get_object().cruises.all()
+        return context
 
 
 class CruiseDetailView(generic.DetailView):

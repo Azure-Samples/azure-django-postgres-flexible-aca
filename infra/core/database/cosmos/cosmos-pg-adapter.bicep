@@ -59,4 +59,4 @@ resource postgresCluster 'Microsoft.DBforPostgreSQL/serverGroupsv2@2023-03-02-pr
 
 }
 
-output DOMAIN_NAME string = postgresCluster.properties.serverNames[0].fullyQualifiedDomainName
+output domainName string = postgresCluster.properties.serverNames[0].fullyQualifiedDomainName

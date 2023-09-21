@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Dict
 
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
@@ -27,7 +27,7 @@ class DestinationDetailView(generic.DetailView):
     model = models.Destination
     context_object_name = "destination"
 
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context["cruises"] = self.get_object().cruises.all()
         return context

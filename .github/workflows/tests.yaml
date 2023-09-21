@@ -1,4 +1,4 @@
-name: Python check
+name: Run Python E2E tests
 
 on:
   push:

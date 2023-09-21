@@ -1,10 +1,9 @@
-
-# /.github/workflows/cruft-update.yml
 name: Update repository with Cruft
 permissions:
   contents: write
   pull-requests: write
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 2 * * 1" # Every Monday at 2am
 jobs:

@@ -23,11 +23,10 @@
                 "charliermarsh.ruff",
                 "ms-python.python",
                 "ms-python.black-formatter",
-                "microsoft.bicep",
-                "bierner.github-markdown-preview",
+                "ms-azuretools.vscode-docker",
                 "mtxr.sqltools",
                 "mtxr.sqltools-driver-pg",
-                "ms-azuretools.vscode-docker"
+                "bierner.github-markdown-preview"
             ],
             "settings": {
                 "sqltools.connections": [
@@ -40,7 +39,15 @@
                         "username": "postgres",
                         "password": "postgres"
                     }
-                ]
+                ],
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.testing.pytestEnabled": true,
+                "python.testing.unittestEnabled": false,
+                "files.exclude": {
+                    ".coverage": true,
+                    ".pytest_cache": true,
+                    "__pycache__": true
+                }
             }
         }
     },

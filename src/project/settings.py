@@ -164,3 +164,4 @@ LOGGING = {
 }
 
 DJANGO_LOG_LEVEL = DEBUG
+DEBUG_PROPAGATE_EXCEPTIONS = DEBUG  # Enables VS Code debugger to break on raised exceptions

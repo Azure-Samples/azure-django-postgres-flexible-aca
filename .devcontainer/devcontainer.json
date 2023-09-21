@@ -23,11 +23,10 @@
                 "charliermarsh.ruff",
                 "ms-python.python",
                 "ms-python.black-formatter",
-                "microsoft.bicep",
-                "bierner.github-markdown-preview",
+                "ms-azuretools.vscode-docker",
                 "mtxr.sqltools",
                 "mtxr.sqltools-driver-pg",
-                "ms-azuretools.vscode-docker"
+                "bierner.github-markdown-preview"
             ],
             "settings": {
                 "sqltools.connections": [
@@ -40,7 +39,15 @@
                         "username": "postgres",
                         "password": "postgres"
                     }
-                ]
+                ],
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.testing.pytestEnabled": true,
+                "python.testing.unittestEnabled": false,
+                "files.exclude": {
+                    ".coverage": true,
+                    ".pytest_cache": true,
+                    "__pycache__": true
+                }
             }
         }
     },
@@ -50,6 +57,5 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "postCreateCommand": "python -m pip install -r requirements-dev.in && python src/manage.py migrate && python src/manage.py loaddata src/seed_data.json"
-
 }
 

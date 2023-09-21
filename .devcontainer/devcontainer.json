@@ -57,6 +57,5 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "postCreateCommand": "python -m pip install -r requirements-dev.in && python src/manage.py migrate && python src/manage.py loaddata src/seed_data.json"
-
 }
 

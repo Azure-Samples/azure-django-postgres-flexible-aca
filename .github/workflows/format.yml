@@ -1,4 +1,4 @@
-name: Python Format Check
+name: Run Python linter and formatter
 on:
   push:
     branches:

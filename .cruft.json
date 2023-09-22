@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
-  "commit": "d36bd69d410680fca18132d56b5d8fe4f68e9997",
+  "commit": "c1d81947006a8e4ac7915b5fcc92d385aa57735a",
   "checkout": "main",
   "context": {
     "cookiecutter": {
@@ -13,6 +13,7 @@
       "__src_folder_name": "relecloud_django_postgres_flexible_aca",
       "__project_short_description": "Create a relecloud demo application with django and postgres-flexible",
       "_copy_without_render": [
+        ".github/workflows/azure-dev.yml",
         ".github/workflows/cruft.yml",
         ".github/workflows/devcontainer-ci.yml",
         ".github/workflows/format.yml"

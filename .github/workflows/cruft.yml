@@ -54,8 +54,7 @@ jobs:
           git config --global user.email "you@example.com"
           git config --global user.name "GitHub"
 
-          cruft update --checkout=
-          "jm-on-stream" --skip-apply-ask --refresh-private-variables
+          cruft update --checkout="jm-on-stream" --skip-apply-ask --refresh-private-variables
           git restore --staged .
 
       - name: Create pull request

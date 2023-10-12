@@ -25,7 +25,6 @@ def destinations(request):
 class DestinationDetailView(generic.DetailView):
     template_name = "destination_detail.html"
     model = models.Destination
-    context_object_name = "destination"
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
@@ -36,7 +35,6 @@ class DestinationDetailView(generic.DetailView):
 class CruiseDetailView(generic.DetailView):
     template_name = "cruise_detail.html"
     model = models.Cruise
-    context_object_name = "cruise"
 
 
 class InfoRequestCreate(SuccessMessageMixin, generic.CreateView):

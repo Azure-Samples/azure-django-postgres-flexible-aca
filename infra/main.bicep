@@ -66,7 +66,7 @@ module monitoring 'core/monitor/monitoring.bicep' = {
     tags: tags
     applicationInsightsDashboardName: '${prefix}-appinsights-dashboard'
     applicationInsightsName: '${prefix}-appinsights'
-    logAnalyticsName: '${prefix}-loganalytics'
+    logAnalyticsName: '${take(prefix, 50)}-loganalytics' // Max 63 chars
   }
 }
 

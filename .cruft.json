@@ -1,7 +1,7 @@
 {
   "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
   "commit": "9a4147023e7d1ab60accd7eca6ecbc8e2de38afb",
-  "checkout": "jm-update-cruft.yaml",
+  "checkout": "jm-on-stream",
   "context": {
     "cookiecutter": {
       "project_name": "Relecloud",

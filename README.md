@@ -30,8 +30,22 @@ Run gunicorn on the app:
 
 ```sh
 python3 src/manage.py collectstatic
-python3 -m gunicorn project.wsgi:application -c src/gunicorn.conf.py --pythonpath src
+python3 -m gunicorn project.wsgi:application --pythonpath src --reload
 ```
+
+### Admin
+
+This app comes with the built-in Django admin interface.
+
+1. Create a superuser:
+
+```
+python3 src/manage.py createsuperuser
+```
+
+2. Restart the server and navigate to "/admin"
+
+3. Login with the superuser credentials.
 
 ## Running tests
 

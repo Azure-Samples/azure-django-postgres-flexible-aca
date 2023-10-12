@@ -31,7 +31,7 @@ jobs:
           python-version: "3.10"
 
       - name: Install Cruft
-        run: pip3 install cruft
+        run: pip3 install -r requirements-dev.in
 
       - name: Check if update is available
         continue-on-error: false

@@ -39,7 +39,7 @@ jobs:
         run: |
           CHANGES=0
           if [ -f .cruft.json ]; then
-            if ! cruft check; then
+            if ! cruft check --checkout="jm-on-stream"; then
               CHANGES=1
             fi
           else

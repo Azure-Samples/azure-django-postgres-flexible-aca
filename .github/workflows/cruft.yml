@@ -20,7 +20,7 @@ jobs:
             title: New updates detected with Cruft
           - add-paths: .cruft.json
             body: Use this to reject the changes in this repository.
-            branch: cruft/reject${{ github.run_id }}}
+            branch: cruft/reject${{ github.run_id }}
             commit-message: "chore: reject new Cruft update"
             title: Reject new updates detected with Cruft
     steps:

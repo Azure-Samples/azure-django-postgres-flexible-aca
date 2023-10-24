@@ -3,7 +3,7 @@
 
 name: azure-django-postgres-flexible-aca
 metadata:
-    template: azure-django-postgres-flexible-aca
+    template: azure-django-postgres-flexible-aca@0.0.1
 infra:
     provider: "bicep"
 services:

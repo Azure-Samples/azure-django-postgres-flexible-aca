@@ -31,6 +31,6 @@
   "directory": null,
   "skip": [
     "lab",
-    ".github/workflows/*.yml"
+    ".github/workflows"
   ]
 }

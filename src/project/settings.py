@@ -40,7 +40,7 @@ else:  # Running is Production
         os.environ["CONTAINER_APP_NAME"] + "." + os.environ["CONTAINER_APP_ENV_DNS_SUFFIX"],
     ]
     CSRF_TRUSTED_ORIGINS = [
-        os.environ["CONTAINER_APP_NAME"] + "." + os.environ["CONTAINER_APP_ENV_DNS_SUFFIX"],
+        "https://" + os.environ["CONTAINER_APP_NAME"] + "." + os.environ["CONTAINER_APP_ENV_DNS_SUFFIX"],
     ]
 
 # SECURITY WARNING: don't run with debug turned on in production!

@@ -5,7 +5,10 @@
     {% if prod %}
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     {% endif %}
-                
+    
+    <!--main CSS theme file  -->
+    <link rel="stylesheet" href="{% static 'res/css/theme.css' %}" />
+
      <!-- For new browsers - multisize ico  -->
      <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="{% static 'res/img/favicon.ico' %}">
      

@@ -26,11 +26,10 @@ If you're not using one of those options for opening the project, then you'll ne
 
 ## Running locally
 
-Run gunicorn on the app:
+If you're running the app inside VS Code or GitHub Codespaces, you can use the "Run and Debug" button to start the app.
 
 ```sh
-python3 src/manage.py collectstatic
-python3 -m gunicorn project.wsgi:application --pythonpath src --reload
+python3 src/manage.py runserver 8000
 ```
 
 ### Admin

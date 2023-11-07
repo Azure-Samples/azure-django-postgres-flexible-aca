@@ -62,7 +62,7 @@ python3 src/manage.py createsuperuser
 
     ```sh
     python3 -m pip install -r requirements-dev.in
-    playwright install --with-deps
+    python3 -m playwright install --with-deps
     ```
 
 3. Run the tests:

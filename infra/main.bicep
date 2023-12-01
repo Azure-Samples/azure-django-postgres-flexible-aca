@@ -137,3 +137,5 @@ output SERVICE_WEB_IMAGE_NAME string = web.outputs.SERVICE_WEB_IMAGE_NAME
 output AZURE_KEY_VAULT_ENDPOINT string = keyVault.outputs.endpoint
 output AZURE_KEY_VAULT_NAME string = keyVault.outputs.name
 output APPLICATIONINSIGHTS_NAME string = monitoring.outputs.applicationInsightsName
+output BACKEND_URI string = web.outputs.uri
+

@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
-  "commit": "5361c11e1ead790f7eb0b7a15cd6e803c44c4d7e",
+  "commit": "a105aa60ed422caeafb988f492caeb017ed81d82",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -31,7 +31,6 @@
   },
   "directory": null,
   "skip": [
-    "lab",
-    ".github/workflows"
+    "lab"
   ]
 }

@@ -5,12 +5,9 @@ cruft
 pip-tools
 
 # Testing Tools
-coverage
 pytest
-pytest-cov
 pytest-django
 pytest-playwright
 
 # Linters
 ruff
-black

@@ -21,8 +21,8 @@ services:
 
   app:
     build:
-      context: .
-      dockerfile: Dockerfile_dev
+      context: ..
+      dockerfile: ./.devcontainer/Dockerfile_dev
     depends_on:
       db:
         condition: service_healthy

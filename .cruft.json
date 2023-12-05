@@ -1,10 +1,11 @@
 {
   "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
-  "commit": "d507bca0f2f67be7274add230496456327acef14",
+  "commit": "a105aa60ed422caeafb988f492caeb017ed81d82",
   "checkout": null,
   "context": {
     "cookiecutter": {
       "project_name": "Relecloud",
+      "python_version": "3.12",
       "project_backend": "django",
       "db_resource": "postgres-flexible",
       "project_host": "aca",
@@ -30,7 +31,6 @@
   },
   "directory": null,
   "skip": [
-    "lab",
-    ".github/workflows"
+    "lab"
   ]
 }

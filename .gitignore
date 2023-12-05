@@ -243,3 +243,4 @@ Thumbs.db #thumbnail cache on Windows
 
 # Azure Developer CLI
 .azure/
+.ruff_cache

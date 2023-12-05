@@ -22,24 +22,10 @@
                 "ms-azuretools.vscode-bicep",
                 "charliermarsh.ruff",
                 "ms-python.python",
-                "ms-python.black-formatter",
                 "ms-azuretools.vscode-docker",
-                "mtxr.sqltools",
-                "mtxr.sqltools-driver-pg",
                 "bierner.github-markdown-preview"
             ],
             "settings": {
-                "sqltools.connections": [
-                    {
-                        "name": "Local database",
-                        "driver": "PostgreSQL",
-                        "server": "db",
-                        "port": 5432,
-                        "database": "relecloud",
-                        "username": "postgres",
-                        "password": "postgres"
-                    }
-                ],
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
                 "python.testing.pytestEnabled": true,
                 "python.testing.unittestEnabled": false,
@@ -47,15 +33,23 @@
                     ".coverage": true,
                     ".pytest_cache": true,
                     "__pycache__": true
+                },
+                "[python]": {
+                    "editor.formatOnSave": true,
+                    "editor.defaultFormatter": "charliermarsh.ruff",
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": true,
+                        "source.fixAll": true
+                    }
                 }
             }
         }
     },
     "features": {
-        "ghcr.io/azure/azure-dev/azd:latest": {},
         // Required for azd to package the app to ACA
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/azure/azure-dev/azd:latest": {}
     },
-    "postCreateCommand": "python -m pip install -r requirements-dev.in && python src/manage.py migrate && python src/manage.py loaddata src/seed_data.json"
+    "postCreateCommand": "playwright install chromium --with-deps && python src/manage.py migrate && python src/manage.py loaddata src/seed_data.json"
 }
 

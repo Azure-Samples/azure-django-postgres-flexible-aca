@@ -16,14 +16,11 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
+# Determine whether we're in production, as this will affect many settings.
 prod = bool(os.environ.get("RUNNING_IN_PRODUCTION", False))
 
-if not prod:  # Running in a Test Environment
-    DEBUG = True
+if not prod:  # Running in a Test/Development environment
+    DEBUG = True  # SECURITY WARNING: don't run with debug turned on in production!
     DEFAULT_SECRET = "insecure-secret-key"
     ALLOWED_HOSTS = []
     CSRF_TRUSTED_ORIGINS = [
@@ -33,7 +30,7 @@ if not prod:  # Running in a Test Environment
         CSRF_TRUSTED_ORIGINS.append(
             f"https://{os.environ.get('CODESPACE_NAME')}-8000.{os.environ.get('GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN')}"
         )
-else:  # Running is Production
+else:  # Running in a Production environment
     DEBUG = False
     DEFAULT_SECRET = None
     ALLOWED_HOSTS = [
@@ -43,7 +40,6 @@ else:  # Running is Production
         "https://" + os.environ["CONTAINER_APP_NAME"] + "." + os.environ["CONTAINER_APP_ENV_DNS_SUFFIX"],
     ]
 
-# SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = os.environ.get("SECRET_KEY", DEFAULT_SECRET)
 
 INSTALLED_APPS = [
@@ -107,6 +103,10 @@ OPENCENSUS = {
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+db_options = {}
+if ssl_mode := os.environ.get("POSTGRES_SSL"):
+    db_options = {"sslmode": ssl_mode}
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -114,7 +114,8 @@ DATABASES = {
         "USER": os.environ.get("POSTGRES_USERNAME"),
         "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
         "HOST": os.environ.get("POSTGRES_HOST"),
-        "PORT": os.environ.get("POSTGRES_PORT"),
+        "PORT": os.environ.get("POSTGRES_PORT", 5432),
+        "OPTIONS": db_options,
     }
 }
 

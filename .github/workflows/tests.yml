@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ["ubuntu-20.04"]
-        python_version: ["3.8", "3.9", "3.10", "3.11"]
+        python_version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
     services:
       db:
         image: postgres:14
@@ -36,13 +36,13 @@ jobs:
         - name: Install dependencies
           run: |
             python3 -m pip install --upgrade pip
-            python3 -m pip install -r requirements-dev.in
+            python3 -m pip install -r requirements-dev.txt
             playwright install --with-deps
         - name: Seed data and run Pytest tests
           run: |
             python3 src/manage.py migrate
             python3 src/manage.py loaddata src/seed_data.json
-            python3 -m pytest 
+            python3 -m pytest
           env:
             POSTGRES_HOST: localhost
             POSTGRES_USERNAME: postgres

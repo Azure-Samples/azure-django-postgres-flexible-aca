@@ -32,7 +32,8 @@
                 "files.exclude": {
                     ".coverage": true,
                     ".pytest_cache": true,
-                    "__pycache__": true
+                    "__pycache__": true,
+                    ".ruff_cache": true
                 },
                 "[python]": {
                     "editor.formatOnSave": true,

@@ -37,7 +37,7 @@ jobs:
           run: |
             python3 -m pip install --upgrade pip
             python3 -m pip install -r requirements-dev.txt
-            playwright install --with-deps
+            playwright install chromium --with-deps
         - name: Seed data and run Pytest tests
           run: |
             python3 src/manage.py migrate

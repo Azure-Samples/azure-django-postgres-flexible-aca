@@ -8,6 +8,9 @@ pip-tools
 pytest
 pytest-django
 pytest-playwright
+coverage
+pytest-cov
+axe-playwright-python
 
 # Linters
 ruff

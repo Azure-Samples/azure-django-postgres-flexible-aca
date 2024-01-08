@@ -103,5 +103,5 @@ jobs:
           run: |
             python3 -m pip install --upgrade pip
             python3 -m pip install -r requirements-dev.txt
-            python3 -m playwright install --with-deps
+            python3 -m playwright install chromium --with-deps
             python3 -m pytest --exitfirst src/tests/smoke/smoketests.py --live-server-url $URI

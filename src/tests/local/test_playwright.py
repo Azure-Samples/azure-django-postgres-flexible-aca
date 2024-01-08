@@ -1,13 +1,20 @@
 import re
 
 import pytest
+from axe_playwright_python.sync_playwright import Axe
 from playwright.sync_api import Page, expect
+
+
+def check_for_violations(page: Page):
+    results = Axe().run(page)
+    assert results.violations_count == 0, results.generate_report()
 
 
 def test_home(page: Page, live_server_url: str):
     """Test that the home page loads"""
     page.goto(live_server_url)
     expect(page).to_have_title("ReleCloud - Expand your horizons")
+    check_for_violations(page)
 
 
 @pytest.mark.parametrize(
@@ -26,6 +33,7 @@ def test_header_has_request_info(page: Page, live_server_url: str, page_title, p
     # Request Info
     request_info = header.get_by_role("link", name=page_title)
     expect(request_info).to_have_attribute("href", re.compile(rf".*{page_url}.*"))
+    check_for_violations(page)
 
 
 def test_request_information(page: Page, live_server_url: str):
@@ -33,12 +41,14 @@ def test_request_information(page: Page, live_server_url: str):
     page.goto(live_server_url)
     page.get_by_role("link", name="Request Information").click()
     expect(page).to_have_title("ReleCloud - Request information")
+    check_for_violations(page)
 
 
 def test_destinations(page: Page, live_server_url: str):
     page.goto(live_server_url)
     page.get_by_role("link", name="Destinations").click()
     expect(page).to_have_title("ReleCloud - Destinations")
+    check_for_violations(page)
 
 
 destinations = (
@@ -80,6 +90,7 @@ def test_destination_options(
     page.get_by_role("link", name="Destinations").click()
     expect(page).to_have_title("ReleCloud - Destinations")
     expect(page.get_by_text(destination)).to_be_visible()
+    check_for_violations(page)
 
 
 @pytest.mark.parametrize(
@@ -97,6 +108,7 @@ def test_destination_options_have_cruises(page: Page, live_server_url: str, dest
 
     for page_cruise in page_cruises:
         assert page_cruise.text_content() in cruises
+    check_for_violations(page)
 
 
 def test_about(page: Page, live_server_url: str):
@@ -104,3 +116,4 @@ def test_about(page: Page, live_server_url: str):
     page.goto(live_server_url)
     page.get_by_role("link", name="About").click()
     expect(page.locator("#page-title")).to_have_text(re.compile(r".*about.*", re.IGNORECASE))
+    check_for_violations(page)

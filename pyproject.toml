@@ -10,3 +10,6 @@ extend-exclude = ["src/flaskapp/migrations/"]
 addopts = "-ra -vv"
 DJANGO_SETTINGS_MODULE = "project.settings"
 pythonpath = ["src"]
+
+[tool.coverage.report]
+show_missing = true

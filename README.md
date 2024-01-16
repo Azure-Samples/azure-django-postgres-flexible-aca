@@ -1,3 +1,23 @@
+---
+page_type: sample
+languages:
+- azdeveloper
+- python
+- bicep
+- html
+- css
+- scss
+products:
+- azure
+- azure-container-apps
+- azure-postgresql
+- azure-pipelines
+urlFragment: azure-django-postgres-flexible-aca
+name: Deploy Django Application with PostgreSQL via Azure Container Apps (Python)
+description: This project deploys a web application for a space travel agency using Django with Python. 
+---
+<!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
+
 # Deploy Django Application with PostgreSQL via Azure Container Apps
 
 This project deploys a web application for a space travel agency using Django. The application can be deployed to Azure with Azure Container Apps using the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview).

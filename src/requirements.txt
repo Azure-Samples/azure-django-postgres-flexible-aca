@@ -1,4 +1,5 @@
 # global requirements
+azure-monitor-opentelemety
 gunicorn==20.1.0
 
 # django requirements
@@ -6,6 +7,4 @@ django
 django-crispy-forms
 crispy-bootstrap4
 whitenoise
-opencensus-ext-azure
-opencensus-ext-django
 psycopg2-binary==2.9.6

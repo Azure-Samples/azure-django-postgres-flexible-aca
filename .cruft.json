@@ -1,7 +1,7 @@
 {
   "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
-  "commit": "5fc0c5d072a91c0d4dcebdb6cee48798581db53b",
-  "checkout": null,
+  "commit": "64239034a763acd85bb8f25876d52bc205764ea3",
+  "checkout": "django-opentelemetry",
   "context": {
     "cookiecutter": {
       "project_name": "Relecloud",

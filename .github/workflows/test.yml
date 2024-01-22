@@ -26,11 +26,9 @@ jobs:
     steps:
       - name: Check for MacOS Runner
         if: matrix.os == 'macos-latest-xlarge'
-          run: |
+        run: |
             brew install postgresql@14
-      - name: Configure PostgreSQL
       - uses: ikalnytskyi/action-setup-postgres@v4
-      - name: Setup python
       - uses: actions/checkout@v3
       - name: Setup python
         uses: actions/setup-python@v2

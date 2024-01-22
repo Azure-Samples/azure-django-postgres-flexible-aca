@@ -1,6 +1,6 @@
 {
-  "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
-  "commit": "5fc0c5d072a91c0d4dcebdb6cee48798581db53b",
+  "template": "https://github.com/Azure-Samples/Azure-Python-Standardization-Template-Generator",
+  "commit": "69a2c05252a51759b67dea8b207582aa444308df",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -11,7 +11,7 @@
       "project_host": "aca",
       "web_port": "8000",
       "__repo_name": "Relecloud-django-postgres-flexible-aca",
-      "__src_folder_name": "relecloud_django_postgres_flexible_aca",
+      "__src_folder_name": "azure-django-postgres-flexible-aca",
       "__project_short_description": "Create a relecloud demo application with django and postgres-flexible",
       "_copy_without_render": [
         ".github/workflows/azure-dev.yml",
@@ -26,11 +26,8 @@
         "lstrip_blocks": true,
         "trim_blocks": true
       },
-      "_template": "https://github.com/kjaymiller/cookiecutter-relecloud"
+      "_template": "https://github.com/Azure-Samples/Azure-Python-Standardization-Template-Generator"
     }
   },
-  "directory": null,
-  "skip": [
-    "lab"
-  ]
+  "directory": null
 }

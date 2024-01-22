@@ -15,7 +15,7 @@ jobs:
         include:
           - add-paths: .
             body: Use this to merge the changes to this repository.
-            branch: cruft/update${{ github.run_id }}
+            branch: cruft/update
             commit-message: "chore: accept new Cruft update"
             title: New updates detected with Cruft
           - add-paths: .cruft.json

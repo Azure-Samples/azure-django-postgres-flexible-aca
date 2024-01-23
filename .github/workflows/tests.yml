@@ -28,6 +28,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup postgres
         uses: ikalnytskyi/action-setup-postgres@v4
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DATABASE: postgres
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -42,11 +47,6 @@ jobs:
         run: |
           python3 src/manage.py migrate
           python3 src/manage.py loaddata src/seed_data.json
-        env:
-          POSTGRES_HOST: localhost
-          POSTGRES_USERNAME: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DATABASE: postgres
       - name: Run tests Windows
         if: runner.os == 'windows'
         run: python3 -m pytest --ignore=src/tests/local/test_gunicorn.py

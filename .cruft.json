@@ -1,6 +1,6 @@
 {
-  "template": "https://github.com/Azure-Samples/Azure-Python-Standardization-Template-Generator",
-  "commit": "69a2c05252a51759b67dea8b207582aa444308df",
+  "template": "/Users/kjaymiller/Azure-Python-Standardization-Template-Generator",
+  "commit": "adfb07c65e1a642baa563a165311cb5d88a7d890",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -26,7 +26,7 @@
         "lstrip_blocks": true,
         "trim_blocks": true
       },
-      "_template": "https://github.com/Azure-Samples/Azure-Python-Standardization-Template-Generator"
+      "_template": "/Users/kjaymiller/Azure-Python-Standardization-Template-Generator"
     }
   },
   "directory": null

@@ -53,6 +53,16 @@ jobs:
       - name: Run tests Windows
         if: runner.os == 'windows'
         run: python3 -m pytest --ignore=src/tests/local/test_gunicorn.py
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DATABASE: postgres
       - name: Run tests 
         if: runner.os != 'windows'
         run: python3 -m pytest
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DATABASE: postgres

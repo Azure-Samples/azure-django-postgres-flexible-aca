@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/Azure-Samples/Azure-Python-Standardization-Template-Generator",
-  "commit": "69a2c05252a51759b67dea8b207582aa444308df",
+  "commit": "621af12f962b64b1f3458b83fa1af0898d565d80",
   "checkout": null,
   "context": {
     "cookiecutter": {

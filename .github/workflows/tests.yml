@@ -14,37 +14,56 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["ubuntu-20.04"]
+        os: ["ubuntu-latest", "macos-latest", "macos-latest-xlarge", "windows-latest"]
         python_version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-    services:
-      db:
-        image: postgres:14
-        env:
-          POSTGRES_PASSWORD: postgres
-        ports:
-        - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        exclude:
+          - os: macos-latest-xlarge
+            python_version: 3.8
+          - os: macos-latest-xlarge
+            python_version: 3.9
+          - os: macos-latest-xlarge
+            python_version: "3.10"
     steps:
-        - uses: actions/checkout@v3
-        - name: Setup python
-          uses: actions/setup-python@v2
-          with:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Check for MacOS Runner
+        if: matrix.os == 'macos-latest-xlarge'
+        run: brew install postgresql@14
+      - name: Setup postgres
+        uses: ikalnytskyi/action-setup-postgres@v4
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
 
-            python-version: ${{ matrix.python_version }}
-            architecture: x64
-        - name: Install dependencies
-          run: |
-            python3 -m pip install --upgrade pip
-            python3 -m pip install -r requirements-dev.txt
-            playwright install chromium --with-deps
-        - name: Seed data and run Pytest tests
-          run: |
-            python3 src/manage.py migrate
-            python3 src/manage.py loaddata src/seed_data.json
-            python3 -m pytest
-          env:
-            POSTGRES_HOST: localhost
-            POSTGRES_USERNAME: postgres
-            POSTGRES_PASSWORD: postgres
-            POSTGRES_DATABASE: postgres
+          python-version: ${{ matrix.python_version }}
+          architecture: x64
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements-dev.txt
+          playwright install chromium --with-deps
+      - name: Seed data
+        run: |
+          python3 src/manage.py migrate
+          python3 src/manage.py loaddata src/seed_data.json
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DATABASE: postgres
+      - name: Run tests Windows
+        if: runner.os == 'windows'
+        run: python3 -m pytest --ignore=src/tests/local/test_gunicorn.py
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DATABASE: postgres
+      - name: Run tests 
+        if: runner.os != 'windows'
+        run: python3 -m pytest
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DATABASE: postgres

@@ -67,9 +67,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-if prod:
-    MIDDLEWARE.append("opencensus.ext.django.middleware.OpencensusMiddleware")
-
 ROOT_URLCONF = "project.urls"
 
 TEMPLATES = [
@@ -91,16 +88,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "project.wsgi.application"
 
 
-OPENCENSUS = {
-    "TRACE": {
-        "SAMPLER": "opencensus.trace.samplers.ProbabilitySampler(rate=1)",
-        "EXPORTER": f"""opencensus.ext.azure.trace_exporter.AzureExporter(
-            connection_string="{os.environ.get('APPLICATIONINSIGHTS_CONNECTION_STRING')}"
-        )""",
-    }
-}
-
-# Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 db_options = {}

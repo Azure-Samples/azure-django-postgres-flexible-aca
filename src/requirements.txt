@@ -6,6 +6,5 @@ django
 django-crispy-forms
 crispy-bootstrap4
 whitenoise
-opencensus-ext-azure
-opencensus-ext-django
+azure-monitor-opentelemetry
 psycopg2

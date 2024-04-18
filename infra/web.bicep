@@ -78,17 +78,15 @@ module app 'core/host/container-app-upsert.bicep' = {
         secretRef: 'secret-key'
       }
       ]
-    secrets: [
-        {
-          name: 'dbserver-password'
-          value: dbserverPassword
-        }
-        {
-          name: 'secret-key'
-          keyVaultUrl: '${keyVault.properties.vaultUri}secrets/SECRETKEY'
-          identity: webIdentity.id
-        }
-      ]
+    secrets: {
+          'dbserver-password': dbserverPassword
+     }
+    keyvaultIdentities: {
+      'secret-key': {
+        keyVaultUrl: '${keyVault.properties.vaultUri}secrets/SECRETKEY'
+        identity: webIdentity.id
+      }
+    }
     targetPort: 8000
   }
 }

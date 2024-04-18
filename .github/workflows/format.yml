@@ -1,11 +1,15 @@
 name: Run Python linter and formatter
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - 'lab/**'
+      - 'assets/**'
+
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
     paths-ignore:
       - '**.md'
       - 'lab/**'

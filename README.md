@@ -77,14 +77,14 @@ python3 src/manage.py createsuperuser
 
 ## Running tests
 
-2. Install the development requirements:
+1. Install the development requirements:
 
     ```sh
     python3 -m pip install -r requirements-dev.txt
     python3 -m playwright install chromium --with-deps
     ```
 
-3. Run the tests:
+2. Run the tests:
 
     ```sh
     python3 -m pytest

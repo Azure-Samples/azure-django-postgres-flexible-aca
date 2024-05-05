@@ -29,6 +29,7 @@ resource cosmos 'Microsoft.DocumentDB/databaseAccounts@2022-08-15' = {
     enableMultipleWriteLocations: false
     apiProperties: (kind == 'MongoDB') ? { serverVersion: '4.2' } : {}
     capabilities: [ { name: 'EnableServerless' } ]
+    disableKeyBasedMetadataWriteAccess: true // See PsRule AZR-000095
   }
 }
 

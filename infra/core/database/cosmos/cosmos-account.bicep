@@ -3,6 +3,7 @@ param name string
 param location string = resourceGroup().location
 param tags object = {}
 
+@secure()
 param connectionStringKey string = 'AZURE-COSMOS-CONNECTION-STRING'
 param keyVaultName string
 

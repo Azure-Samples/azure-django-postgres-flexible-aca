@@ -5,6 +5,12 @@ param tags object = {}
 
 param principalId string = ''
 
+@description('List of IP addresses or IP address ranges in CIDR format that are allowed to access the key vault.')
+param ipRules array = []
+
+// Allow all Azure services to bypass Key Vault network rules
+param allowAzureServicesAccess bool = true
+
 resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
   name: name
   location: location
@@ -12,6 +18,13 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
   properties: {
     tenantId: subscription().tenantId
     sku: { family: 'A', name: 'standard' }
+    networkAcls: {
+      bypass: allowAzureServicesAccess ? 'AzureServices' : 'None'
+      defaultAction: 'Deny'
+      ipRules: ipRules
+      virtualNetworkRules: []
+    }
+    enableRbacAuthorization: true
     accessPolicies: !empty(principalId) ? [
       {
         objectId: principalId

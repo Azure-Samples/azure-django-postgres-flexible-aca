@@ -4,6 +4,7 @@ param tags object = {}
 
 param sku object
 param storage object
+@secure()
 param administratorLogin string
 @secure()
 param administratorLoginPassword string

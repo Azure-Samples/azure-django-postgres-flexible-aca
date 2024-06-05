@@ -1,6 +1,7 @@
 metadata description = 'Creates an Azure Key Vault.'
 param name string
 param location string = resourceGroup().location
+param logAnalyticsWorkspaceId string
 param tags object = {}
 
 param principalId string = ''
@@ -32,6 +33,20 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
         tenantId: subscription().tenantId
       }
     ] : []
+  }
+}
+
+resource logs 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: 'logs'
+  scope: keyVault
+  properties: {
+    workspaceId: logAnalyticsWorkspaceId
+    logs: [
+      {
+        category: 'AuditEvent'
+        enabled: true
+      }
+    ]
   }
 }
 

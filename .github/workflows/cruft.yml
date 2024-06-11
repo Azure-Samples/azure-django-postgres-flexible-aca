@@ -60,8 +60,8 @@ jobs:
       - name: Create pull request
         if: steps.check.outputs.has_changes == '1'
         run: |
-          echo "::set-output name=branch::${{ matrix.branch }}"
-          echo "::set-output name=commit-message::${{ matrix.commit-message }}"
+          echo "branch=${{ matrix.branch }}" >> "$GITHUB_OUTPUT"
+          echo "commit-message=${{ matrix.commit-message }}" >> "$GITHUB_OUTPUT"
           git checkout -b "${{ matrix.branch }}"
           git add ${{ matrix.add-paths }}
           git commit -m "${{ matrix.commit-message }}"

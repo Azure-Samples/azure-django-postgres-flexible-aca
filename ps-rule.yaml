@@ -1,3 +1,12 @@
 # YAML: Set the AZURE_BICEP_FILE_EXPANSION configuration option to enable expansion
 configuration:
   AZURE_BICEP_FILE_EXPANSION: true
+  AZURE_DEPLOYMENT_NONSENSITIVE_PARAMETER_NAMES:
+    - connectionStringKey
+
+
+rule:
+  exclude:
+  # Ignore ACA public access rules since all these templates are for public facing web apps
+  - Azure.ContainerApp.RestrictIngress
+  - Azure.ContainerApp.PublicAccess

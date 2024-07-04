@@ -5,12 +5,10 @@ languages:
 - python
 - bicep
 - html
-- css
-- scss
 products:
 - azure
 - azure-container-apps
-- azure-postgresql
+- azure-database-postgresql
 urlFragment: azure-django-postgres-flexible-aca
 name: Deploy Django Application with PostgreSQL on Azure Container Apps (Python)
 description: This project deploys a web application for a space travel agency using Django with Python, and is set up for easy deployment with the Azure Developer CLI.

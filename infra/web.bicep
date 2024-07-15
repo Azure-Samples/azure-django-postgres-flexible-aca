@@ -16,26 +16,26 @@ param dbserverUser string
 @secure()
 param dbserverPassword string
 
+resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
+  name: keyVaultName
+}
+
 resource webIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   name: identityName
   location: location
 }
 
-resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
-  name: keyVaultName
-}
-
-// Give the app access to KeyVault
-module webKeyVaultAccess './core/security/keyvault-access.bicep' = {
-  name: 'web-keyvault-access'
+module keyVaultRoleAssignment 'core/security/role.bicep' = {
+  name: 'webRoleAssignment'
   params: {
-    keyVaultName: keyVault.name
     principalId: webIdentity.properties.principalId
+    roleDefinitionId: '4633458b-17de-408a-b874-0445c86b69e6' // Key Vault Secrets User
   }
 }
 
 module app 'core/host/container-app-upsert.bicep' = {
   name: '${serviceName}-container-app-module'
+  dependsOn: [keyVaultRoleAssignment]
   params: {
     name: name
     location: location

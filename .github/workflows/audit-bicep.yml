@@ -6,12 +6,14 @@ on:
       - cruft/update
     paths:
       - "infra/**"
+      - "ps-rule.yaml"
   pull_request:
     branches: 
       - main
       - cruft/update
     paths:
       - "infra/**"
+      - "ps-rule.yaml"
   workflow_dispatch:
 
 jobs:

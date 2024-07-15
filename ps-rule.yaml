@@ -12,3 +12,6 @@ rule:
   - Azure.ContainerApp.PublicAccess
   # Don't require NSG for an internal VNET for connecting apps to keyvaults
   - Azure.VNET.UseNSGs
+  # Don't require Postgres AAD/MI for now 
+  - Azure.PostgreSQL.AAD
+  - Azure.PostgreSQL.AADOnly

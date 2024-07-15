@@ -10,3 +10,5 @@ rule:
   # Ignore ACA public access rules since all these templates are for public facing web apps
   - Azure.ContainerApp.RestrictIngress
   - Azure.ContainerApp.PublicAccess
+  # Don't require NSG for an internal VNET for connecting apps to keyvaults
+  - Azure.VNET.UseNSGs

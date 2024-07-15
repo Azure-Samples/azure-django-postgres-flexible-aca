@@ -36,6 +36,7 @@ param scmDoBuildDuringDeployment bool = false
 param use32BitWorkerProcess bool = false
 param ftpsState string = 'FtpsOnly'
 param healthCheckPath string = ''
+param virtualNetworkSubnetId string = ''
 
 resource appService 'Microsoft.Web/sites@2022-03-01' = {
   name: name
@@ -65,6 +66,7 @@ resource appService 'Microsoft.Web/sites@2022-03-01' = {
     }
     clientAffinityEnabled: clientAffinityEnabled
     httpsOnly: true
+    virtualNetworkSubnetId: virtualNetworkSubnetId
   }
 
   identity: { type: managedIdentity ? 'SystemAssigned' : 'None' }

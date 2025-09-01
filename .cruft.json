@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/Azure-Samples/Azure-Python-Standardization-Template-Generator",
-  "commit": "94513c0c679a5809e0b80787e3b9a340a10a6450",
+  "commit": "6798b41ec5b30d5a8f0a74bd3fc84551c3056a55",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -11,7 +11,7 @@
       "project_host": "aca",
       "web_port": "8000",
       "__repo_name": "Relecloud-django-postgres-flexible-aca",
-      "__src_folder_name": "azure-django-postgres-flexible-aca",
+      "__src_folder_name": "relecloud_django_postgres_flexible_aca",
       "__project_short_description": "Create a relecloud demo application with django and postgres-flexible",
       "_copy_without_render": [
         ".github/workflows/azure-dev.yml",
@@ -26,7 +26,8 @@
         "lstrip_blocks": true,
         "trim_blocks": true
       },
-      "_template": "https://github.com/Azure-Samples/Azure-Python-Standardization-Template-Generator"
+      "_template": "https://github.com/Azure-Samples/Azure-Python-Standardization-Template-Generator",
+      "_commit": "6798b41ec5b30d5a8f0a74bd3fc84551c3056a55"
     }
   },
   "directory": null
